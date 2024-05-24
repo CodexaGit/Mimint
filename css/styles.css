@@ -1,0 +1,76 @@
+.container{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    margin: 0px auto;
+    justify-content: center;
+}
+body {
+    overflow: hidden;
+}
+.loginPrecionado{
+    animation: rotarLogin 2s  ease-in-out;
+    animation-fill-mode: forwards;
+}
+.registrarPrecionado{
+    animation: rotarRegistrar 2s  ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes rotarLogin {
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 10;
+        transform: translateY(100px) translateX(200px) rotate(40deg);
+        
+    }
+}
+@keyframes rotarRegistrar {
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 10;
+        transform: translateY(100px) translateX(-200px) rotate(-40deg);
+        
+    }
+}
+.ocultar{
+    animation: ocultar 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes ocultar {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin: 0px auto;
+    text-align: center;
+    opacity: 0;
+    background-color: rgb(39, 99, 134);
+}
+.mostrar{
+    animation: mostrar 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes mostrar {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+input{
+    display: block;
+    margin: 0px auto;
+}
