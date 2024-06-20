@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="css/styles.css">
+    <title>Codexa/Registro</title>
 </head>
-<body>
-    <div class="container">
-        <svg width="300px" height="400px" class="registrarPrecionado" viewBox="0 0 2440 2817" fill="none" xmlns="http://www.w3.org/2000/svg" id="logo">
-            <path d="M1829.67 1056.36L1219.78 1408.48L609.889 1056.36V1760.6V2112.72V2205.64L686.125 2247.7L819.538 2321.3V2112.72V1386.75L1219.78 1613.77L1620.02 1386.75V2112.72V2325.25L1753.43 2249.13L1829.67 2205.64V2112.72V1936.66V1760.6V1056.36Z" fill="#B6FFFA"/>
-            <path d="M2439.55 704.239L1219.78 0L0 704.239L609.889 1056.36L1219.78 1408.48L1829.67 1056.36L2439.55 704.239Z" fill="#04364A"/>
-            <path d="M0 704.239V2112.72L609.889 2464.84L686.125 2508.85L819.538 2585.88L952.951 2662.9L1219.78 2816.96V2112.72V1613.77L819.538 1386.75V2112.72V2321.3L686.125 2247.7L609.889 2205.64V2112.72V1760.6V1056.36L0 704.239Z" fill="#065A76"/>
-            <path d="M2439.55 2112.72V704.239L1829.67 1056.36V1760.6V1936.66V2112.72V2205.64L1753.43 2249.13L1620.02 2325.25V2112.72V1386.75L1219.78 1613.77V2112.72V2816.96L1486.6 2662.9L1620.02 2585.88L1753.43 2508.85L1829.67 2464.84L2439.55 2112.72Z" fill="#001C30"/>
-        </svg>    
+<body>  
+        <img class="barra" src="img/barra.png" alt="">
+        <img class="logo" src="img/logo.png" alt="">
+    <div class="contenedor">
+        <p class="registro">REGISTRO</p>
+        <h3 id="mensajeError" ></h3>
+        <form class="formulario">
+            <input type="number" class="cedula" id="cedula" placeholder="DOCUMENTO">
+            <input type="password" class="contrasena" id="contrasena" placeholder="CONTRASEÑA">
+            <input type="text" class="nombre" id="nombre" placeholder="NOMBRE COMPLETO">
+            <input type="text" class="email" id="email" placeholder="E-MAIL">
+
+            <br>
+        </form>
+        <div class="botonContenedor" style="width: 75%;text-align: center;">
+            <button class="boton" style="text-align: center;margin: auto;" onclick="verificar()">ACEPTAR</button>
+        </div>
+        <a href="index.html" class="link">¿TIENES USUARIO? INICIA SESIÓN </a>
     </div>
     <script src="js/registro.js"></script>
 </body>
