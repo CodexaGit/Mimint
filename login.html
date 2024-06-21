@@ -16,19 +16,20 @@
         <p class="login">¡BIENVENIDO!<br>INGRESE SESIÓN</p>
         <h3 id="mensajeError" ></h3>
         <form class="formulario">
-            
-            <input type="number" id="cedula" class="cedula" placeholder="DOCUMENTO" required>
-            <input type="password" id="contrasena" class="contrasena" placeholder="CONTRASEÑA" required>
+            <div class="contenedorInputs">
+                <input type="number" id="cedula" class="cedula" placeholder="DOCUMENTO" required>
+                <input type="password" id="contrasena" class="contrasena" placeholder="CONTRASEÑA" required>
+            </div>
             <br>
-            <a href="olvidar.html" class="link">¿OLVIDASTE TU CONTRASEÑA?</a>
             <br>
             <!-- <input type="submit" value="ACEPTAR" onclick="verificar()" class="boton"> -->
-             
+            <div class="botonContenedor botonContenedorLogin" style="text-align: center;">
+                <a href="olvidar.html" class="link">¿OLVIDASTE TU CONTRASEÑA?</a>
+                <button class="boton" style="text-align: center;margin: auto;" onclick="verificar()">ACEPTAR</button>
+                <a href="registro.html" class="link">¿NO TIENES USUARIO? REGISTRATE </a>
+            </div>
         </form>
-        <div class="botonContenedor" style="width: 75%;text-align: center;">
-            <button class="boton" style="text-align: center;margin: auto;" onclick="verificar()">ACEPTAR</button>
-        </div>
-        <a href="registro.html" class="link">¿NO TIENES USUARIO? REGISTRATE </a>
+        
     </div>
     <script src="js/login.js"></script>
 </body>

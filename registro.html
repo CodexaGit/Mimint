@@ -16,17 +16,18 @@
         <p class="registro">REGISTRO</p>
         <h3 id="mensajeError" ></h3>
         <form class="formulario">
-            <input type="number" class="cedula" id="cedula" placeholder="DOCUMENTO">
-            <input type="password" class="contrasena" id="contrasena" placeholder="CONTRASEÑA">
-            <input type="text" class="nombre" id="nombre" placeholder="NOMBRE COMPLETO">
-            <input type="text" class="email" id="email" placeholder="E-MAIL">
-
+            <div class="contenedorInputs">
+                <input type="number" class="cedula" id="cedula" placeholder="DOCUMENTO">
+                <input type="password" class="contrasena" id="contrasena" placeholder="CONTRASEÑA">
+                <input type="text" class="nombre" id="nombre" placeholder="NOMBRE COMPLETO">
+                <input type="text" class="email" id="email" placeholder="E-MAIL">
+            </div>
             <br>
+            <div class="botonContenedor botonContenedorRegistro" style="text-align: center;">
+                <button class="boton" style="text-align: center;margin: auto;" onclick="verificar()">ACEPTAR</button>
+                <a href="index.html" class="link">¿TIENES USUARIO? INICIA SESIÓN </a>
+            </div>
         </form>
-        <div class="botonContenedor" style="width: 75%;text-align: center;">
-            <button class="boton" style="text-align: center;margin: auto;" onclick="verificar()">ACEPTAR</button>
-        </div>
-        <a href="index.html" class="link">¿TIENES USUARIO? INICIA SESIÓN </a>
     </div>
     <script src="js/registro.js"></script>
 </body>
