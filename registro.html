@@ -15,7 +15,7 @@
     <div class="contenedor">
         <p class="registro">REGISTRO</p>
         <h3 id="mensajeError" ></h3>
-        <form class="formulario">
+        <form class="formulario" onsubmit="return false">
             <div class="contenedorInputs">
                 <input type="number" class="cedula" id="cedula" placeholder="DOCUMENTO">
                 <input type="password" class="contrasena" id="contrasena" placeholder="CONTRASEÑA">
@@ -25,7 +25,7 @@
             <br>
             <div class="botonContenedor botonContenedorRegistro" style="text-align: center;">
                 <button class="boton" style="text-align: center;margin: auto;" onclick="verificar()">ACEPTAR</button>
-                <a href="index.html" class="link">¿TIENES USUARIO? INICIA SESIÓN </a>
+                <a href="login.html" class="link">¿TIENES USUARIO? INICIA SESIÓN </a>
             </div>
         </form>
     </div>
