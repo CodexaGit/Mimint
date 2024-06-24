@@ -15,16 +15,16 @@
     <div class="contenedor">
         <p class="registro">REGISTRO</p>
         <h3 id="mensajeError" ></h3>
-        <form class="formulario" onsubmit="return false">
+        <form class="formulario" onsubmit="return verificar()">
             <div class="contenedorInputs">
-                <input type="number" class="cedula" id="cedula" placeholder="DOCUMENTO">
-                <input type="password" class="contrasena" id="contrasena" placeholder="CONTRASEÑA">
-                <input type="text" class="nombre" id="nombre" placeholder="NOMBRE COMPLETO">
-                <input type="text" class="email" id="email" placeholder="E-MAIL">
+                <input type="number" class="cedula" id="cedula" placeholder="DOCUMENTO" required>
+                <input type="password" class="contrasena" id="contrasena" placeholder="CONTRASEÑA" required>
+                <input type="text" class="nombre" id="nombre" placeholder="NOMBRE COMPLETO" required>
+                <input type="email" class="email" id="email" placeholder="E-MAIL" required>
             </div>
             <br>
             <div class="botonContenedor botonContenedorRegistro" style="text-align: center;">
-                <button class="boton" style="text-align: center;margin: auto;" onclick="verificar()">ACEPTAR</button>
+                <input type="submit" class="boton" style="text-align: center;margin: auto;">
                 <a href="login.html" class="link">¿TIENES USUARIO? INICIA SESIÓN </a>
             </div>
         </form>

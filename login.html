@@ -15,17 +15,16 @@
     <div class="contenedor">
         <p class="login">¡BIENVENIDO!<br>INGRESE SESIÓN</p>
         <h3 id="mensajeError" ></h3>
-        <form class="formulario" onsubmit="return false">
+        <form class="formulario" onsubmit="return verificar()">
             <div class="contenedorInputs">
                 <input type="number" id="cedula" class="cedula" placeholder="DOCUMENTO" required>
                 <input type="password" id="contrasena" class="contrasena" placeholder="CONTRASEÑA" required>
             </div>
             <br>
             <br>
-            <!-- <input type="submit" value="ACEPTAR" onclick="verificar()" class="boton"> -->
             <div class="botonContenedor botonContenedorLogin" style="text-align: center;">
                 <a href="olvidar.html" class="link">¿OLVIDASTE TU CONTRASEÑA?</a>
-                <button class="boton" style="text-align: center;margin: auto;" onclick="verificar()">ACEPTAR</button>
+                <input type="submit" value="ACEPTAR" class="boton" style="text-align: center;margin: auto;">
                 <a href="registro.html" class="link">¿NO TIENES USUARIO? REGISTRATE </a>
             </div>
         </form>
