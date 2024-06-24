@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Codexa/Inicio Sesion</title>
+</head>
+<body>  
+        <img class="barra" src="img/barra.png" alt="">
+        <img class="logo" src="img/logo.png" alt="">
+    <div class="contenedor">
+        <p class="login">¡BIENVENIDO!<br>INGRESE SESIÓN</p>
+        <h3 id="mensajeError" ></h3>
+        <form class="formulario">
+            <div class="contenedorInputs">
+                <input type="number" id="cedula" class="cedula" placeholder="DOCUMENTO" required>
+                <input type="password" id="contrasena" class="contrasena" placeholder="CONTRASEÑA" required>
+            </div>
+            <br>
+            <br>
+            <!-- <input type="submit" value="ACEPTAR" onclick="verificar()" class="boton"> -->
+            <div class="botonContenedor botonContenedorLogin" style="text-align: center;">
+                <a href="olvidar.html" class="link">¿OLVIDASTE TU CONTRASEÑA?</a>
+                <button class="boton" style="text-align: center;margin: auto;" onclick="verificar()">ACEPTAR</button>
+                <a href="registro.html" class="link">¿NO TIENES USUARIO? REGISTRATE </a>
+            </div>
+        </form>
+        
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>
