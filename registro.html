@@ -17,10 +17,11 @@
         <h3 id="mensajeError" ></h3>
         <form class="formulario" onsubmit="return verificar()">
             <div class="contenedorInputs">
-                <input type="number" class="cedula" id="cedula" placeholder="DOCUMENTO" required>
-                <input type="password" class="contrasena" id="contrasena" placeholder="CONTRASEÑA" required>
-                <input type="text" class="nombre" id="nombre" placeholder="NOMBRE COMPLETO" required>
-                <input type="email" class="email" id="email" placeholder="E-MAIL" required>
+                <input type="number" class="cedula" id="cedula" placeholder="DOCUMENTO" min="10000000" max="99999999" title="Cedula con solo números. Sin puntos ni guiones" required>
+                <input type="password" class="contrasena" id="contrasena" placeholder="CONTRASEÑA" minlength="6" maxlength="50" required>
+                <input type="text" class="nombre" id="nombre" placeholder="NOMBRE COMPLETO" minlength="3" maxlength="50" pattern="([\S][a-zA-Z ])[\S]{2,}" required>
+                <!-- ([\S][a-zA-Z ]*)[\S]{2,} -->
+                <input type="email" class="email" id="email" placeholder="E-MAIL" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="nombre@correo.com" required>
             </div>
             <br>
             <div class="botonContenedor botonContenedorRegistro" style="text-align: center;">

@@ -14,7 +14,7 @@ function verificar(){
         error(1);
     } else {
         //si no estan vacios comprueba si el usuario existe, por ahora solo existe un usuario de prueba
-        if (cedula == "1234" && contrasena == "1234"){
+        if (cedula == "12345678" && contrasena == "administrador"){
             //si esta todo bien se redirige a la pagina principal
             location.href = "paginaPrincipal.html";
         } else {
@@ -22,7 +22,7 @@ function verificar(){
             error(2);
         }
     }
-    
+
     //Hacemos return ya que queremos que cada vez que llamemos a la funcion error nos devuelva false ya que asi la pagina no se reinicia y muestre los errores sin problemas. Ademas queremos que la redireccion con location.href funcione correctamente.
     return false;
 }

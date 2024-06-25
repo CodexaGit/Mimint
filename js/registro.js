@@ -21,7 +21,7 @@ function verificar(){
         error(1);
     } else {
         //si ninguno de los datos estan vacios comprueba si ese usuario existe. Por ahora solo existe un usuario de prueba.
-        if (cedula == "1234"){
+        if (cedula == "12345678"){
             //si existe le sale error
             error(2);
             

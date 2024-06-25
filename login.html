@@ -17,8 +17,8 @@
         <h3 id="mensajeError" ></h3>
         <form class="formulario" onsubmit="return verificar()">
             <div class="contenedorInputs">
-                <input type="number" id="cedula" class="cedula" placeholder="DOCUMENTO" required>
-                <input type="password" id="contrasena" class="contrasena" placeholder="CONTRASEÑA" required>
+                <input type="number" id="cedula" class="cedula" placeholder="DOCUMENTO" min="10000000" max="99999999" title="Cedula con solo números. Sin puntos ni guiones" required>
+                <input type="password" id="contrasena" class="contrasena" placeholder="CONTRASEÑA" minlength="6" maxlength="50" required>
             </div>
             <br>
             <br>
