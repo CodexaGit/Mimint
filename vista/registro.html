@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <p class="titulo">REGISTRARSE</p>
+    <div class="containerRegistro">
+        <div class="logo-container">
+            <img src="img/logo.png" id="logoRegistro" class="logo" alt="Logo">
+        </div>
+        <div class="form-container">
+            <form action="" method="POST">
+                <div class="formCampoRegistro">
+                    <label for="nombre">NOMBRE COMPLETO</label>
+                    <input type="text" name="nombre" class="inputCampo">    
+                </div>
+                <div class="formCampoRegistro">
+                    <label for="documento">DOCUMENTO</label>
+                    <input type="number" name="documento" class="inputCampo">
+                </div>
+                <div class="formCampoRegistro">
+                    <label for="email">E-MAIL</label>
+                    <input type="email" name="email" class="inputCampo">
+                </div>
+                <div class="formCampoRegistro">
+                    <label for="password">CONTRASEÑA</label>
+                    <input type="password" name="contrasena" class="inputCampo">
+                </div>
+                <div class="formCampoRegistro">
+                    <input type="submit" value="REGISTRARSE" class="inputCampo">
+                </div>
+            </form>
+            <p class="ayuda"><a href="login.html">¿Ya estas registrastrado?</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
