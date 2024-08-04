@@ -1,288 +1,79 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    font-weight:500;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+body {
+    background: rgb(100,204,197);
+    background: linear-gradient(145deg, #49A2A2 0%, rgba(4,54,74,1) 100%);
+    color: #ffffffb0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Sawarabi Gothic';
 }
-#mensajeError{
-    color: #FF9797;
-    border-bottom:1px #FF9797 solid;
-    display: none;
-    margin-top: 10px;
-    margin-left: 50vh;
+p {
+    font-size: 24px;
+    margin-top: 0px;
 }
-
-body{
-    background-image: url(../img/fondo.png);
-    background-size: cover;
-}
-
-.login, .registro{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
-    display: inline-block;
-    width: 65%;
-    font-size: 60px;
-    font-weight: 600;
-    margin-top: 50px;
-    text-align: center;
-}
-.login{
-    width: 65%;
-}
-
-
-.formulario{
-    display: inline-block;
-    margin-left: 110px;
-    width: 50%;
-}  
-
-::placeholder{
-    font-size: 25px;
-    color:rgba(255, 255, 255, 0.6);
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
-
-.link{
-    color: white;
-    display: block;
-    margin: 20px;
-    font-size: medium;
-}
-
-
-.barra{
-    position: absolute;
-    z-index: 1;
-    right: 0px;
-    height: 100%;
-    width: 340px;
-    top: 0px;
-}
-.logo{
-    position: absolute;
-    height: 228.63px;
-    width: 202.02px;
-    right: 55px;
-    top: 180px;
-    z-index: 2;
-    opacity: 0.5;
-}
-.boton{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border-radius: 50px;
-    background-color: #244958;
-    box-shadow: inset 0 0 10px 5px rgba(255, 255, 255, 0.5);
-    color: #ffffff;
-    margin-left: 50vh;
-    border: none;
-    width: 200px;
-    height: 70px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 25px;
-}
-*{
-    padding: 0px;
-    margin: 0px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-#mensajeError{
-    color: #FF9797;
-    border-bottom:1px #FF9797 solid;
-    display: none;
-    margin-top: 10px;
-    margin-left: 50vh;
-}
-
-body{
-    background-image: url(../img/fondo.png);
-    background-size: cover;
-}
-.titulo{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
-    margin-left: -55vh;
-    font-size: 60px;
-    font-weight: 600;
-    margin-top: 50px;
-    text-align: center;
-}
-.formulario {
+.container {
+    width: 40%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    margin-left: 110px;
 }
-::placeholder{
-    font-size: 25px;
-    color:rgba(255, 255, 255, 0.6);
+.logo {
+    width: 30%;
+    margin-bottom: 100px;
 }
-
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formCampo {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+label {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 20px;
+}
+input[type="submit"]{
+    letter-spacing: 2px;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: #04364A;
+    background-color: #ffffff6e;
+}
+input {
+    width: 100%;
+    border: none;
+    margin-bottom: 10px;
+    background-color: #ffffff00;
+    border-bottom: 2px solid #ffffff6e; 
+    font-size: 20px;
+    color: #ffffff;
+}
+input:focus{
+    outline: none;
+    border-color: #ffffff;
+    font-size: 24px;
+}
+a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 20px;
+    border-bottom: 1px solid #ffffff;
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
+    margin: 0;
 }
 
-.olvidar{
-    color: white;
-    margin-left: 47vh;
-}
-
-.cedula, .nombre, .email, .contrasena{
-    background: linear-gradient(0deg, rgba(255,255,255,0.1) 10%, rgba(0,28,48,0.1) 90%);
-    width: 100%;
-    padding-top: 5px;
-    border: none;
-    border-bottom: 1px solid #ffffff;
-    background-color: transparent;
-    margin-bottom: 45px;
-    margin-top: 45px;
-    font-size: 30px;
-    color: white;
-}
-
-.barra{
-    position: absolute;
-    z-index: 1;
-    right: 0px;
-    height: 100%;
-    width: 340px;
-    top: 0px;
-}
-.logo{
-    position: absolute;
-    height: 228.63px;
-    width: 202.02px;
-    right: 55px;
-    top: 180px;
-    z-index: 2;
-    opacity: 0.5;
-}
-.boton{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border-radius: 50px;
-    background-color: #244958;
-    box-shadow: inset 0 0 10px 5px rgba(255, 255, 255, 0.5);
-    color: #ffffff;
-    margin-left: 50vh;
-    margin-top: 20px;
-    border: none;
-    width: 200px;
-    height: 70px;
-    font-size: 25px;
-}
-.botonContenedor{
-    width: 100%;
-    text-align: center;
-}
-@media (max-width:1305px) {
-    body{
-        background-image: url(../img/fondoTablet.png);
-        
-    }
-    input {
-        width: 100%; /* o cualquier otro valor que necesites */
-    }
-    .barra{
-        display: none;
-    }
-    .logo{
-        content: url(../img/logoVisible.png);
-        opacity: 1;
-        top: 20%;
-    }
-    .formulario{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        margin: 0px;
-    }
-    
-    .botonContenedor{
-        display: inline-block;
-        width: auto;
-        margin-right: 9px;
-        text-align: center;     
-    }
-    .logo{
-        top: 10%;
-    }
-    .botonContenedorLogin{
-        margin-top: 10%;
-    }
-    .formulario{
-        text-align: start;
-    }
-    .contenedorInputs{
-        display: inline-block;
-        margin-left: 30px;
-        width: 60%;
-        
-    }
-    
-}
-@media (max-width:1000px){
-    .contenedorInputs{
-        width: 65%;
-    }
-}
-@media (max-width: 900px){
-    body{
-        text-align: center;
-    }
-    .botonContenedor{ 
-        margin: 0px;
-        width: 100%;
-    }
-    .login, .registro{
-        display: inline-block;
-        margin: 0px auto;
-    }
-    .logo{
-        display: block;
-        position: static;
-        margin: 0px auto;
-    }
-    .formulario{
-        display: block;
-        margin: 0px;
-        width: 90%;
-        margin: 0px auto;
-    }
-    .contenedorInputs{
-        width: 100%;
-        margin-left: 0px;
-    }
-
-}
-@media (max-width:1030px){
-    body{
-        background-size:auto;
-        background-repeat: repeat-y;
-    }
-}
-@media (max-width:800px){
-    body{
-        background-image: url(../img/fondoCelular.png);
-        background-size: cover;
-    }
-    
-    .login,.registro{
-        font-size: xx-large;
-    }
-}
-@media (max-width:400px){
-    .boton,.link,.email,.nombre,.cedula,.contrasena{
-        font-size: medium;
-    }
+/* Para Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }
