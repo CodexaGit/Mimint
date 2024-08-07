@@ -1,6 +1,6 @@
 body {
     background: rgb(100,204,197);
-    background: linear-gradient(145deg, rgba(100,204,197,1) 0%, rgba(4,54,74,1) 100%);
+    background: linear-gradient(145deg, #64ccc5 0%, #04364a 100%);
     color: #ffffffb0;
     height: 100vh;
     overflow: hidden;
@@ -97,14 +97,33 @@ label {
     font-size: 30px;
     letter-spacing: 5px;
 }
-input[type="submit"] {
+.inputCampo[type="submit"] {
     width: 100%;
     border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
     padding: 20px;
     letter-spacing: 2px;
     color: #04364A;
     background-color: #ffffff6e;
+    transition: box-shadow 0.2s ease;
 }
+
+.inputCampo[type="submit"]:hover {
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2), 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.inputCampo[type="submit"]:focus {
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.inputCampo[type="submit"]:active {
+    box-shadow: inset 2px 2px 1px #04364a, inset -2px -2px 1px rgba(255, 255, 255, 0.3);
+    font-size: 25px;
+    letter-spacing: 2px;
+    transition: box-shadow 0.2s ease;
+}
+
 a {
     color: #ffffff;
     text-decoration: none;
@@ -116,4 +135,46 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+
+@media (max-width:1230px){
+    .containerLogin{
+        width:60%;
+    }
+    .containerRegistro{
+        width: 60%;
+        margin: 0 auto;
+        display: flex;
+        padding-bottom: 50px;
+        flex-direction: column;
+        align-items: center;
+    }
+    #logoRegistro{
+        width: 100%;
+        margin-bottom: 100px;
+    }
+    .formCampoRegistro{
+        width:100%;
+    }
+}
+@media (max-width:860px){
+    .containerLogin, .containerRegistro{
+        width:80%;
+    }
+    
+}
+@media (max-width:460px){
+    .containerLogin, .containerRegistro{
+        width:100;
+    }
+    .form-container{
+        width:98%;
+    }
+    .titulo{
+        font-size:20px;
+    }
+    .ayuda{
+        font-size:18px;
+    }
 }
