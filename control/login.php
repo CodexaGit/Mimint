@@ -25,18 +25,18 @@ ERROR 2: Usuario aun no aceptado por administrador
 ERROR 3: Usuario ya existente
 */
 
-if ($resultado->num_rows > 0){
-    $arrayResultado = $resultado->fetch_all(MYSQLI_ASSOC);
-    $estado = $arrayResultado[0]['estado'];
-    $estado = strtolower($estado);
+if ($resultado->num_rows > 0){ //Verifica si existe algun usuario con dicha contraseña y cedula 
+    $arrayResultado = $resultado->fetch_all(MYSQLI_ASSOC); //Se guardan los datos en un array
+    $estado = $arrayResultado[0]['estado']; //Se toma el estado del primer elemento (el cual deberia de ser el unico)
+    $estado = strtolower($estado); //Se pone el string en minuscula
     echo $estado;
-    if ($estado == "denegado" || $estado == "pendiente"){
-        header ("Location: ../vista/login.html?error=2");
-    }else if ($estado == "aprobado"){
-        header ("Location: ../vista/index.html");
+    if ($estado == "denegado" || $estado == "pendiente"){ //Se verifica si estado es denegado o pendiente
+        header ("Location: ../vista/login.html?error=2"); //Se vuelve a login.html con el valor de error 2 que significa que el usuario aun no fue aceptado por el administrador
+    }else if ($estado == "aprobado"){ //Se verifica si el estado del usuario es aprobado
+        header ("Location: ../vista/index.html"); //Se lleva a la pagina de inicio de la aplicacion
     }
 } else{
-    header ("Location: ../vista/login.html?error=1");
+    header ("Location: ../vista/login.html?error=1"); //Se vuelve al login.html con el valor de error 1 que significa que no se encontro a un usuario con el documento y la contraseña ingresada
 }
 
 $conexion->close(); // Cierre de conexión
