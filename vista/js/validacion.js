@@ -11,13 +11,14 @@ document.getElementById('form').addEventListener('submit', function(event) {
     formData.append('documento', documento);
     formData.append('contrasena', contrasena);
 
-    fetch('login.php', {
+    fetch('../control/login.php', {
         method: 'POST',
         body: formData
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            localStorage.setItem('usuario', JSON.stringify(data.usuario));
             window.location.href = '../vista/index.html';
         } else if (data.error === 1) {
             window.location.href = '../vista/login.html?error=1';
@@ -25,7 +26,9 @@ document.getElementById('form').addEventListener('submit', function(event) {
             window.location.href = '../vista/login.html?error=2';
         } else {
             alert('Lo sentimos, no se pudo realizar la consulta.');
+
         }
+        console.log(data.error);
     })
     .catch(error => console.error('Error:', error));
 });

@@ -1,7 +1,6 @@
-
-
-
 <?php
+
+header('Content-Type: application/json');
 
 /*
 ERROR 0: No se pudo realizar la consulta
@@ -10,40 +9,42 @@ ERROR 2: Usuario aun no aceptado por administrador
 ERROR 3: Usuario ya existente
 */
 
-$documento=$_POST['documento'];
-$contrasena=$_POST['contrasena'];
-
-
-require_once('bd.php');
-
-// Ahora, vamos a mostrar los registros almacenados en la tabla 'tabla'
-// Vamos a imprimir los resultados por pantalla, podria utilizar cualquier etiqueta de HTML para dicho fin.
-
-// Guardamos en una variable la consulta para la busqueda de registros
-$consulta = "SELECT * FROM usuario WHERE documento = ".$documento." AND contrasena='".$contrasena."' ;";
-
-// Controlamos que no haya habido algún error en la consulta
-// El signo ! niega valor en la variable
-if (!$resultado = $conexion->query($consulta)) {
-    echo json_encode(["error" => 0]);
-    echo "Lo sentimos, no se pudo realizar la consulta.";
+// Verificar si los parámetros POST están presentes
+if (!isset($_POST['documento']) || !isset($_POST['contrasena'])) {
+    echo json_encode(["error" => "Parámetros incompletos"]);
     exit;
 }
 
+$documento = $_POST['documento'];
+$contrasena = $_POST['contrasena'];
 
+require_once('bd.php');
 
-if ($resultado->num_rows > 0){
+// Guardamos en una variable la consulta para la búsqueda de registros
+$consulta = "SELECT * FROM usuario WHERE documento = ? AND contrasena = ?";
+
+// Preparamos la consulta para evitar inyecciones SQL
+$stmt = $conexion->prepare($consulta);
+$stmt->bind_param("ss", $documento, $contrasena);
+
+// Ejecutamos la consulta
+if (!$stmt->execute()) {
+    echo json_encode(["error" => 0]);
+    exit;
+}
+
+$resultado = $stmt->get_result();
+
+if ($resultado->num_rows > 0) {
     $arrayResultado = $resultado->fetch_all(MYSQLI_ASSOC);
-    $estado = $arrayResultado[0]['estado'];
-    $estado = strtolower($estado);
-    echo $estado;
-    if ($estado == "denegado" || $estado == "pendiente"){
+    $estado = strtolower($arrayResultado[0]['estado']);
+
+    if ($estado == "denegado" || $estado == "pendiente") {
         echo json_encode(["error" => 2]);
-    }else if ($estado == "aprobado"){
-        echo json_encode(["aprobado" => true]);
-        header ("Location: ../vista/index.html");
+    } else if ($estado == "aprobado") {
+        echo json_encode(["success" => true,  "usuario" => $arrayResultado[0]]);
     }
-} else{
+} else {
     echo json_encode(["error" => 1]);
 }
 
