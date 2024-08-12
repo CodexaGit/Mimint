@@ -35,6 +35,7 @@ if (!$stmt->execute()) {
 
 $resultado = $stmt->get_result();
 
+
 if ($resultado->num_rows > 0) {
     $arrayResultado = $resultado->fetch_all(MYSQLI_ASSOC);
     $estado = strtolower($arrayResultado[0]['estado']);

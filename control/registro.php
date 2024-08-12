@@ -9,9 +9,9 @@ ERROR 3: Usuario ya existente
 $documento=$_POST['documento'];
 $contrasena=$_POST['contrasena'];
 $email=$_POST['email'];
-$nombreCompleto = explode(" ", $_POST['nombre']);
-$nombre=$nombreCompleto[0];
-$apellido=$nombreCompleto[1];
+$nombreCompleto = explode(" ", $_POST['nombre']); //Se separa el nombre completo a partir de los espacios 
+$nombre=$nombreCompleto[0]; //Se le asigna el primer valor del array nombreCompleto a nombre
+$apellido=$nombreCompleto[1]; //Se le asigna el segundo valor a apellido
 
 require_once('bd.php');
 
@@ -28,6 +28,7 @@ if (!$resultado = $conexion->query($consulta)) {
     echo json_encode(["error" => 0]);
     exit;
 }
+
 
 if ($resultado->num_rows > 0){
     echo json_encode(["error" => 3]);
