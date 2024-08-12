@@ -10,21 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body>      
     <p class="titulo">INICIO DE SESION</p>
     <div class="containerLogin">
         <div class="logo-container">
             <img src="img/logo.png" id="logoLogin" class="logo" alt="Logo">
         </div>
         <div class="form-container">
-            <form action="../control/login.php" method="POST">            
+            <form action="../control/login.php" id="form" method="POST">            
                 <div class="formCampoLogin">
                     <label for="documento">DOCUMENTO</label>
-                    <input type="number" name="documento" class="inputCampo">    
+                    <input type="number" id="documento" name="documento" class="inputCampo">    
                 </div>
                 <div class="formCampoLogin">
                     <label for="password">CONTRASEÑA</label>
-                    <input type="password" name="contrasena" class="inputCampo">
+                    <input type="password" id="contrasena" name="contrasena" class="inputCampo">
                 </div>
                 <p class="ayuda">¿Olvidaste tu contraseña?</p>
                 <div class="formCampoLogin">
@@ -34,5 +34,6 @@
         <p class="ayuda"><a href="registro.html">¿Aun no tienes una cuenta?</a></p>
         </div>
     </div>
+    <script src="js/validacion.js"></script>
 </body>
 </html>

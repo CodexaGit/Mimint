@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Inicio</title>
 </head>
 <body>
-    BIENVENIDOOOOOOOOOOOOOOOOOOOOOOO
+    <div class="navbar">
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
+        <div id="nav-links" class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="../control/listadoReserva.php">Reserva</a>
+            <a href="../control/listadoEquipamiento.php">Equipamiento</a>
+            <a href="../control/listadoSala.php">Sala</a>
+            <a href="../control/listadoUsuario.php">Usuario</a>
+            <a class="nombreUsuario"></a>
+        </div>
+    </div>
+    <h1 id="user-info"></h1>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var usuarioData = localStorage.getItem('usuario');
+            console.log(usuarioData);
+            if (usuarioData) {
+                var usuario = JSON.parse(usuarioData); // Convertir la cadena JSON en un objeto
+                var userInfoDiv = document.getElementById('user-info');
+                userInfoDiv.textContent = "Te damos la bienvenida a Mimint, " + usuario.nombre; // Mostrar los datos del usuario
+                
+            }
+        });
+    </script>
+    <script src="js/datosUsuario.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
