@@ -1,0 +1,187 @@
+body{
+    background: linear-gradient(135deg, rgba(100,204,197,1) 10%, rgba(4,54,74,1) 100%);
+    background-attachment: fixed;
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+
+#Calendario img{
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50.8vw;
+    height: auto;
+   
+}
+
+.containerA{
+    position: absolute;
+    top: 9vh;
+    right: 1vw;
+    width: 50vw;
+    height: 80vh;
+    display: grid;
+    grid-template-rows: 20vh 8vh 8vh 1fr;
+
+}
+
+
+#titulo{
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 1.5vw;
+    color: #ffff
+
+}
+
+#agregarReunion{
+
+display: flex;
+justify-content: start;
+
+}
+
+#agregarReunion p{
+
+    font-size: 1.35vw;
+padding-left: 0.74vw;  
+color: #ffff
+
+    }
+     
+
+#agregarReunion img{
+
+margin-top: 1.6vh;
+margin-left: 1vw;
+width: 2.3vw ;
+height: fit-content;
+
+}
+
+#modoYo{
+
+    display: flex;
+    justify-content: start;
+
+}
+
+#modoYo p{
+
+
+    font-size: 1.35vw;
+    padding-left: 7.5vw;
+    color: #ffff
+
+
+    }
+
+
+#modoYo #rectangle{
+margin-top: 1.8vh;
+margin-left: 1vw;
+
+    width:2vw ;
+    height: fit-content;
+
+
+}
+
+#modoYo #ejemplo{
+    margin-top: 1.6vh;
+    margin-left: 2vw;
+    
+    width:2.3vw ;
+    height: fit-content;
+
+
+}
+
+#salas{
+
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+        
+}
+
+#sala1{
+
+    display: flex;
+    border-bottom: 2px solid rgb(255, 255, 255) ;
+
+        }
+
+
+
+#sala1 div{
+
+    height: 0.5vh;        
+    
+        }    
+
+#sala1 #texto{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4.5vh;
+    color: #ffff;
+
+
+}
+
+#sala1 img{
+    
+    margin-left: 2vw;
+    margin-top: 6vh;
+    width: 3.5vw;
+    height: fit-content;
+    display: flex;
+
+
+}
+
+#sala1 p{
+    
+    display: flex;
+    margin-top: 2vh;
+    font-size: 2.5vw ;
+    
+
+
+        }
+
+
+
+
+
+/* TOOLTIPS CSS*/
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    
+  }
+
+ 
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    margin-left: 30px;
+    width: 25vw;
+    background-color: rgba(255, 255, 255, 0.288);
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 1vw;
+    text-align: center;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

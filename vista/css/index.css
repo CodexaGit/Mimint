@@ -1,0 +1,939 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+body{
+    background: linear-gradient(135deg, rgba(100,204,197,1) 10%, rgba(4,54,74,1) 100%);
+    background-attachment: fixed;
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+.logo1{
+    position: absolute;
+    float: left;
+    max-width: 75vh;
+}
+.titulo{
+    position: absolute;
+    float: left;
+    text-align: center;
+    right: 10%;
+    font-size: 8vh;
+    color: white;
+    bottom: 40%;
+}
+.apartado{
+    color: rgb(255, 255, 255, 0.5);
+    font-size: 24px;
+    margin-right: 30px;
+}
+
+.filtro{
+    appearance: none;
+    background-color: rgba(139, 139, 139, 0.1);
+    color: white;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 300px;
+    text-align: center;
+    transition: 2s;
+
+}
+/* SALA */
+
+.agregar {
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.agregar h1 {
+    font-size: 50px;
+    margin-right: 20px;
+    color: white;
+}
+
+.mas {
+    background-color: rgb(255, 255, 255, 0.5);
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.contenedor {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.salas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 90%;
+    margin: auto 0px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    width: calc(33.33% - 20px);
+    margin-bottom: 40px;
+}
+
+.fondo {
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.item p {
+    font-size: 40px;
+    padding-right: 40px;
+    padding-left: 100px;
+    color: white;
+}
+
+.menos {
+    background-color: rgb(255, 255, 255, 0.3);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+/* POP UP TEMPORAL */
+.ocultoHECHO {
+    display: none;
+    position: fixed;
+    left: 37.5%;
+    width: 25%;
+    background-color: rgb(255, 255, 255, 0.5); /* Color de fondo verde */
+    color: #04364A;
+    text-align: center;
+    padding: 30px;
+    font-size: 24px;
+    z-index: 1000; /* Asegura que esté en la parte superior */
+}
+
+.mostrarHECHO {
+    display: block;
+}
+
+
+/* POP UP */
+.popup {
+    display: none; /* Oculta el popup por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #0F526D;
+    width: 90%;
+    height: 80%;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.popup-content .formUP label {
+    color: white;
+    font-size: 25px;
+}
+
+.popup-content .formUP2 input {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    padding: 10px;
+    width: 100%;
+    color: white;
+}
+.formUP2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.formUP2 label{
+    margin-top: 10%;
+}
+.formDIV{
+    width: 100%;
+    height: 100%;
+    margin: 4%;
+}
+.t input{
+    margin-top: 8%;
+}
+.l input{
+    margin-top: 2%;
+}
+.caracTODO{
+    display: flex;
+    height: 100%;
+}
+.tablaCARACT{
+    background-color: #27637B;
+    width: 100%;
+    padding-bottom: 42%;
+}
+.q{
+    margin-left: 3%;
+    margin-top: 10%;
+}
+.txtSeparado{
+    margin-bottom: 2%;
+}
+
+.btnCaract{
+    background-color: #87A9B6;
+    color: #04364A;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    padding-top: 1.2%;
+    padding-bottom: 1.2%;
+    position: relative;
+    left: 35%;
+    font-size: 24px;
+}
+
+/* Usuarios Agregados */
+
+.tituloUsu{
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    margin: 5%;
+}
+
+.tabla {
+    background-color: rgb(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: auto;
+    margin-bottom: 3%;
+}
+.tituloTabla{
+    background-color: white;
+    margin: auto;
+    padding: 5px;
+}
+.tabla h1 {
+    margin-left: 1%;
+    font-size: 3vh;
+    color: #04364A;
+}
+
+.datos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 30px;
+}
+
+.fila {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.label {
+    margin-bottom: 5px;
+    color: black;
+    font-size: 20px;
+}
+
+.valor {
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.eliminar {
+    grid-column: span 3;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.eliminar p {
+    margin: 0;
+    margin-right: 10px;
+}
+
+.equis {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+/* Peticiones de Usuarios */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    margin-right: 0px;
+    width: 98%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#search-button{
+    padding: 0.4%;
+    background-color: #0F526D;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+#search-button:hover {
+    background-color: #416d74;
+}
+
+.results {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.lupaP{
+    width: 30px;
+    cursor: pointer;
+}
+
+.imgBlue{
+    width: 40px;
+    cursor: pointer;
+    margin: 1%;
+}
+
+.tablaP h1{
+    margin-left: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+.tablaP{
+    background-color: rgb(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.tituloTablaP{
+    background-color: #04364A;
+    margin: auto;
+    padding: 5px;
+}
+.datosP {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 10px 0px 50px 20px;
+}
+.d{
+    margin-left: 90px;
+}
+.elegir{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0.6);
+    margin-left: 4px;
+    background-image: url(../img/tick.png);
+    background-size: cover;
+}
+.mal{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0.6);
+    padding: 7px;
+    background-image: url(../img/mal.png);
+    background-size: cover;
+}
+.op{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.o{
+    position: absolute;
+    right: 10%;
+}
+.op p {
+    color: #04364A;
+    text-align: right;
+    margin-right: 20px;
+    font-weight: 600;
+}
+.P {
+    color: #04364A;
+}
+
+.switch{
+    max-width: 20vh;
+}
+
+
+
+/* Peticiones Reunion */
+
+.tablaP2 h1{
+    margin-left: 20px;
+    font-size: 20px;
+    color: #04364A;
+}
+
+.tablaP2{
+    background-color: rgb(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+    
+}
+.datos2{
+    display: flex;
+    color: #04364A;
+}
+.sino{
+    display: flex;
+}
+.tituloTablaP2{
+    background-color: white;
+    margin: auto;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+.tituloTablaP2 p{
+    position: relative;
+    right: -80%;
+    z-index: 2;
+}
+.datoNum{
+    background-color: rgb(255, 255, 255, 0.8);
+    padding: 60px;
+    text-align: center;
+}
+.datoNum .txt{
+    margin-top: 20px;
+}
+.datoNum .num{
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.datoTxt{
+    margin: 20px;
+}
+.datoTxt .p2{
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+.datoTxt .txt2 {
+    font-weight: 600;
+    font-size: 24px;
+}
+.datoTxt .txtp2 {
+    font-size: 18px;
+}
+.sino{
+    align-items: center;
+}
+.sino h4{
+    margin-right: 10px;
+}
+.sino img{
+    margin-right: 40px;
+    margin-left: 10px;
+}
+/* Reuniones */
+
+.todos{
+    display: flex;
+}
+
+.todaSalas{
+    text-align: center;
+    position: fixed;
+    width: 19%;
+    max-height: 100%;
+    overflow-y: auto;
+    direction: rtl; /* Coloca el scroll en el lado izquierdo */
+    padding-right: 1%; /* Espacio para evitar que el contenido se superponga al scroll */
+}
+
+.todaSalas p{
+    background-color: rgb(255, 255, 255, 0.5);
+    font-size: 20px;
+    padding: 30px 10%  30px 10%;
+}
+.todaSalas p:hover{
+    color: white;
+    background-color: rgb(255, 255, 255, 0);
+}
+.todaSalas h1{
+    padding: 30px 20% 30px 20%;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255, 0.5);
+}
+.pisoSala{
+    background-color: white;
+    border: none;
+    height: 5px;
+}
+.apartado2{
+    color: rgb(255, 255, 255, 0.5);
+    font-size: 24px;
+    margin: 20px 0px 0px 60px;
+}
+
+
+
+
+/* Disponibilidad Reunion */
+.separador{
+    margin-left: 100px;
+}
+.disponibilidades {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 20%;
+    top: -10px;
+}
+
+#disponibilidad {
+    appearance: none;
+    background-color: rgba(195, 195, 195, 0.1);
+    color: white;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 35px;
+    width: 300px;
+    text-align: center;
+    transition: 2s;
+}
+
+#disponibilidad option {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 20px;
+    font-size: 60px;
+}
+
+
+#disponibilidad option:first-child {
+    font-size: 30px;
+    padding: 10px;
+    background-color: rgb(0, 0, 0, 0.2);
+    color: white;/
+}
+
+/* Contenido Reunion */
+.info {
+    width: 100%;
+    margin-left: 20%;
+    margin-top: 40px;
+    color: white;
+}
+
+.info h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.info h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.numerosP {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    width: 60%;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+}
+.numerosP2 {
+display: flex;
+}
+.textosP {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    width: 60%;
+    gap: 20px;
+    padding: 5px;
+}
+
+.datoReunion { /*TUVE QUE MODIFICAR ESTO LO QUE HICE FUE AÑADIR DISPLAY FLEX Y ALIGN ITEM */
+    display: flex; /*AÑADIDO*/
+    align-items: center; /*AÑADIDO*/
+    margin-left: 100px;
+}
+
+.datoReunion p {
+    margin: 0;
+}
+
+.horas {
+    font-weight: bold;
+    font-size: 35px;
+}
+.horasP{
+    font-size: 20px;
+}
+
+.descrip {
+    margin-top: 20px;
+}
+
+.descrip p {
+    text-align: left;
+    margin: 0 0 10px 0;
+}
+
+.descrip textarea {
+    z-index: 6;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 60%;
+    height: 150px;
+    border: none;
+    padding: 10px;
+}
+
+.equipo {
+    margin-top: 20px;
+}
+
+.equipo p {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.componentes {
+    display: flex;
+    align-items: center;
+}
+
+.tablaEquipo {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 20px;
+    width: 550px;
+}
+
+.tablaEquipo p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.tablaEquipo hr {
+    border: 1px solid white;
+    margin-bottom: 20px;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botones img {
+    width: 40px;
+    height: 40px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.2);
+    object-fit: contain;
+    padding: 5px;
+}
+.sp{
+    margin-top: 100px;
+}
+.reuAceptar{
+    background-color: rgb(255, 255, 255, 0.5);
+    color: #04364A;
+    padding: 20px 200px 20px 200px;
+    border: none;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-size: 20px;
+}
+/* Area de Reportes */
+
+.tituloAgregar{
+
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 11vh;
+
+}
+
+.tituloAgregar h1{
+
+    font-size: 2.2vw;
+    color: #ffff;
+
+}
+
+.descripcionAgregar{
+
+display: flex;
+margin-top: 8vh;
+color: #ffff;
+
+}
+
+.descripcionAgregar #Mes{
+
+margin-left: 20vw;
+font-size: 1.1vw;
+color: #ffff;
+
+}
+
+.descripcionAgregar #Seccion{
+
+    margin-left: 5.5vw;
+    font-size: 1.1vw;
+
+    }
+    
+
+
+.inputsAgregar{
+
+display: flex;
+justify-content: center;
+
+}
+
+
+.inputsAgregar #mes{
+
+    width: 6vw;
+    margin-right: 1.4vw;
+    height: 4.5vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    font-size: 1.7vw;
+    color: #ffff;
+    font-weight: 600;
+
+}
+
+
+
+.inputsAgregar #seccion{
+
+    width: 53vw;
+    height: 4.5vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-weight: 300;
+    font-size: 1.7vw;
+    color: #04364A;
+
+}
+
+.botonAgregar{
+
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 53vh;
+
+}
+
+.botonAgregar input{
+    display: flex;
+    height: 7vh;
+    width: 30vw;
+    border: none;
+    display: flex;
+    font-size: 1.3vw;
+    background-color: rgba(255, 255, 255, 0.4);
+    color:  #04364A;
+    border: none;
+}
+
+
+/* TOOLTIPS CSS*/
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    
+  }
+
+ .tooltip img{
+    display: inline;
+    width: 3.1vw;
+    height: auto;
+    padding-left: 1.7vw;
+
+    
+
+ }
+.tool{
+    padding: 2%;
+    text-align: center;
+}
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    margin-left: 30px;
+    width: 20vw;
+    background-color: rgba(255, 255, 255, 0.288);
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 1vw;
+    text-align: center;
+    /* Position the tooltip */
+    position: absolute;
+
+   
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+/*CAMBIOS ECHOS POR SEBA. ESTO ES PARA LOS IMPUTS DE RESERVAS.PHP */
+
+#formularioReservas input{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    text-align: center;
+    font-size: xx-large;
+}
+#formularioReservas input[type="number"] {
+    width: 5vh;
+}
+#formularioReservas input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.582);
+}
+#formularioReservas select {
+    width: 10vh;
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff;
+    font-size: x-large;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+#formularioReservas select option{
+    background-color: #04364A;
+    color: white;
+    padding: 20px;
+}
+#formularioReservas span{
+    margin-left: -5px;
+    font-size: xx-large;
+    color: white;
+    font-weight: bold;
+}
+input[type="time"]{
+    font-size: large;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+    color: transparent;
+    width: 0px;
+}
+#equipamiento-container .equipamiento-item input {
+    border-bottom: 2px solid white;
+    font-size: large;
+    width: 100%;
+    text-align: left;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Aplica la fuente globalmente a todos los elementos */
+body, input, select, textarea {
+    font-family: 'Sawarabi Gothic';
+}
+.equipamiento-item {
+    display: flex;
+    align-items: center; /* Opcional: para alinear verticalmente los elementos */
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+.equipamiento-item .equipamiento-input {
+    flex: 3; /* Ocupa más espacio disponible */
+}
+
+.equipamiento-item .cantidad-input {
+    flex: 1; /* Ocupa menos espacio disponible */
+    min-width: 50px; /* Ancho mínimo para el campo de cantidad */
+}
+
+.componentes {
+    display: flex;
+    align-items: center; /* Alinear verticalmente los elementos */
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+.botones {
+    display: flex;
+    flex-direction: column; /* Alinear los botones verticalmente */
+    gap: 10px; /* Espacio entre los botones */
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+.buscadorReservas{
+    width: 61%;
+    margin-right: 5%;
+}
+
+
+#botonEliminarUsuario{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0.6);
+    border: none;
+    margin-left: 4px;
+    background-image: url(../img/tick.png);
+    background-size: cover;
+}
+#formularioEliminarUsuario{
+    display: flex;
+    align-items: center;
+}
