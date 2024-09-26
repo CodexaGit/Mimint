@@ -34,5 +34,34 @@ class ReservaModel {
             throw new Exception("Error al agregar el equipamiento: " . $stmt->error);
         }
     }
+
+    public function obtenerPeticionesPendientes($busqueda = null) {
+        $query = "
+            SELECT reserva.*, CONCAT(usuario.nombre, ' ', usuario.apellido) AS nombre_completo
+            FROM reserva
+            JOIN usuario ON reserva.docente = usuario.documento
+            WHERE reserva.estado = 'pendiente'
+        ";
+        if ($busqueda) {
+            $busqueda = $this->conexion->real_escape_string($busqueda);
+            $query .= " AND (usuario.nombre LIKE '%$busqueda%' OR usuario.apellido LIKE '%$busqueda%' OR reserva.descripcion LIKE '%$busqueda%')";
+        }
+        $result = $this->conexion->query($query);
+
+        $resultado = [];
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $resultado[] = $row;
+            }
+        }
+        return $resultado;
+    }
+
+    public function actualizarEstadoReserva($id, $estado) {
+        $query = "UPDATE reserva SET estado = ? WHERE id = ?";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param('si', $estado, $id);
+        return $stmt->execute();
+    }
 }
 ?>

@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Calendario</title>
 </head>
 <body>
@@ -80,6 +81,7 @@
             <?php endif; ?>
         </div>
     </div>
+    <script src="js/verificar_sesion.js"></script>
     <script src="js/menu.js"></script>
 </body>
 </html>

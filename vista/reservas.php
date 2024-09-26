@@ -1,27 +1,9 @@
 <?php
-session_start(); // Iniciar la sesión
+require_once('../controlador/SalaController.php'); 
+require_once('../controlador/bd.php'); 
 
-// Verificar si el usuario está autenticado
-if (!isset($_SESSION['documentoUsuario']) || !isset($_SESSION['contrasenaUsuario'])) {
-    header('Location: login.php'); // Redirigir al login si no está autenticado
-    exit;
-}
-
-require_once('../controlador/bd.php'); // Incluir bd.php para obtener la conexión
-require_once('../controlador/SalaController.php');
-require_once('../modelo/UsuarioModel.php'); // Incluir UsuarioModel.php para obtener la clase UsuarioModel
-
-// Obtener la información del usuario autenticado
-$documentoUsuario = $_SESSION['documentoUsuario'];
-$contrasenaUsuario = $_SESSION['contrasenaUsuario'];
-$usuarioModel = new UsuarioModel($conexion);
-$usuario = $usuarioModel->obtenerUsuarioPorDocumentoYContrasena($documentoUsuario, $contrasenaUsuario)->fetch_assoc();
-
-if (!$usuario) {
-    die('Usuario no encontrado.');
-}
+$controller = new SalaController($conexion);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +53,7 @@ if (!$usuario) {
             <hr>
             <li><a href="areaDeReportes.php">AREA DE REPORTES</a></li>
             <hr>
-            <li><a href="#"><?php echo strtoupper(htmlspecialchars($usuario['nombre'])); ?><img src="img/usuario.png" alt="" class="usuario"></a></li>
+            <li><a href="#"><?php echo isset($usuario['nombre']) ? strtoupper(htmlspecialchars($usuario['nombre'])) : ''; ?></a></li>
             <hr>
         </ul>
     </nav>
@@ -82,8 +64,6 @@ if (!$usuario) {
             <hr class="pisoSala">
             <!-- Aquí se mostrarán las salas dinámicamente -->
             <?php
-            // Utilizar la conexión establecida en bd.php
-            $controller = new SalaController($conexion);
             $salas = $controller->listarSalas();
             if ($salas->num_rows > 0) {
                 while ($sala = $salas->fetch_assoc()) {
@@ -106,8 +86,8 @@ if (!$usuario) {
                     echo "<p>Capacidad: " . htmlspecialchars($sala_info['capacidad']) . "</p>";
                     ?>
                     <form action="procesar_reserva.php" id="formularioReservas" method="POST">
-                        <input type="hidden" name="sala" value="<?php echo $sala_nombre; ?>">
-                        <input type="hidden" name="docente" value="<?php echo htmlspecialchars($usuario['documento']); ?>">
+                        <input type="hidden" name="sala" value="<?php echo htmlspecialchars($sala_nombre); ?>">
+                        <input type="hidden" name="docente" value="<?php echo isset($usuario['documento']) ? htmlspecialchars($usuario['documento']) : ''; ?>">
                         <div class="horarios sp">
                             <div class="textosP">
                                 <div class="datoReunion">
@@ -196,6 +176,7 @@ if (!$usuario) {
     
     <script src="js/menu.js"></script>
     <script src="js/validacionesIngresarReserva.js"></script>
+    <script src="js/verificar_sesion.js"></script>
     <script>
         // Función para obtener el valor de un parámetro de la URL
         function getParameterByName(name) {

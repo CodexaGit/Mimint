@@ -24,5 +24,22 @@ class UsuarioController {
     public function denegarUsuario($documento, $rol) {
         return $this->usuarioModel->actualizarEstado($documento, $rol, 'Rechazado');
     }
+
+    public function verificarSesion() {
+        session_start();
+        if (isset($_SESSION['documentoUsuario'])) {
+            $documentoUsuario = $_SESSION['documentoUsuario'];
+            return $this->usuarioModel->obtenerUsuarioPorDocumento($documentoUsuario);
+        } else {
+            return null;
+        }
+    }
+
+    // Método para manejar respuestas AJAX
+    public function responderJSON($data) {
+        header('Content-Type: application/json');
+        echo json_encode($data);
+        exit;
+    }
 }
 ?>

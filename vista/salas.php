@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Pagina de Mimit</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/menu.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div id="popupHECHO" class="ocultoHECHO">
@@ -124,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <p>" . htmlspecialchars($sala['nombre']) . "</p>
                                     <img src='img/Menos.png' alt='Eliminar Sala' class='menos'>
                                 </div>
-                              </div>";
+                            </div>";
                     }
                 } else {
                     echo "<p>No hay salas disponibles.</p>";
@@ -135,7 +136,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </section>
-
+    
+    <script src="js/verificar_sesion.js"></script>
     <script src="js/menu.js"></script>
 </body>
 </html>

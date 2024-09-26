@@ -46,7 +46,7 @@ class UsuarioModel {
         if (!$resultado) {
             throw new Exception("No se pudo realizar la consulta.");
         }
-        return $resultado; // Devolver el objeto de resultado en lugar de fetch_all
+        return $resultado; // Devolver el objeto de resultado de MySQLi
     }
 
     public function obtenerUsuarioPorDocumentoYContrasena($documento, $contrasena) {
@@ -57,6 +57,19 @@ class UsuarioModel {
             throw new Exception("No se pudo realizar la consulta.");
         }
         return $stmt->get_result();
+    }
+
+    public function obtenerUsuarioPorDocumento($documento) {
+        $consulta = "SELECT nombre, documento FROM usuario WHERE documento = ?";
+        $stmt = $this->conexion->prepare($consulta);
+        $stmt->bind_param("s", $documento);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        if ($resultado->num_rows > 0) {
+            return $resultado->fetch_assoc();
+        } else {
+            return null;
+        }
     }
 
     public function registrarUsuario($documento, $email, $contrasena, $nombre, $apellido) {

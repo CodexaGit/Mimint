@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/menu.css">
     <title>Pagina Mimit</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -49,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
             <hr>
             <li><a href="peticionesUsuarios.php">PETICIONES</a></li>
             <hr>
-            <li><a href="usuariosAgregados.php">AGREGAR USUARIOS</a></li>
+            <li><a href="usuariosAgregados.php">USUARIOS AGREGADOS</a></li>
             <hr>
             <li><a href="areaDeReportes.php">AREA DE REPORTES</a></li>
             <hr>
@@ -119,6 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
         <?php endif; ?>
     </section>
 
+    <script src="js/verificar_sesion.js"></script>
     <script src="js/menu.js"></script>
 </body>
 </html>
