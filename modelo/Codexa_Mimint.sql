@@ -9,20 +9,20 @@ CREATE TABLE usuario(
     apellido VARCHAR(20) NOT NULL,
     rol VARCHAR(20) NOT NULL,
     estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente'
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE sala(
     nombre VARCHAR(30) PRIMARY KEY,
     capacidad INT(4) NOT NULL,
     localidad VARCHAR(20) NOT NULL
-);
+) ENGINE=InnoDB; 
 
 CREATE TABLE caracteristicas(
     sala VARCHAR(30),
     caracteristica VARCHAR(20),
     PRIMARY KEY(sala, caracteristica),
     FOREIGN KEY(sala) REFERENCES sala(nombre)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE reserva(
     id INT(3) AUTO_INCREMENT PRIMARY KEY,
@@ -36,12 +36,12 @@ CREATE TABLE reserva(
     estado VARCHAR(12) DEFAULT 'Pendiente',
     FOREIGN KEY(docente) REFERENCES usuario(documento),
     FOREIGN KEY(sala) REFERENCES sala(nombre)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE equipamiento(
     nombre VARCHAR(30) PRIMARY KEY,
     cantidad INT(3) NOT NULL
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE administra(
     administrador INT(8),
@@ -51,7 +51,7 @@ CREATE TABLE administra(
     PRIMARY KEY(administrador, sala),
     FOREIGN KEY(administrador) REFERENCES usuario(documento),
     FOREIGN KEY(sala) REFERENCES sala(nombre)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE requiere(
     reserva INT,
@@ -60,7 +60,7 @@ CREATE TABLE requiere(
     PRIMARY KEY(reserva, equipamiento),
     FOREIGN KEY(reserva) REFERENCES reserva(id),
     FOREIGN KEY(equipamiento) REFERENCES equipamiento(nombre)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE verifica(
     administrador INT,
@@ -70,5 +70,5 @@ CREATE TABLE verifica(
     PRIMARY KEY(administrador, reserva),
     FOREIGN KEY(administrador) REFERENCES usuario(documento),
     FOREIGN KEY(reserva) REFERENCES reserva(id)
-);
+) ENGINE=InnoDB;
 
