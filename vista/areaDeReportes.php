@@ -9,55 +9,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Document</title>
+    <title>Página Mimint</title>
 </head>
 <body>
-    <nav>
+<nav>
         <div class="menu-btn">
-            <p class="apartado">INICIO</p>
+            <p class="separadorUsuario nombreMenu"></p>
             <img src="img/menu.png" class="menu-icon">
         </div>
         <ul class="nav-links">
-            <li><a href="#">MENU DE OPCIONES</a></li>
-            <hr>
-            <li><a href="inicio.php">INICIO</a></li>
-            <hr>
-            <li><a href="reservas.php">RESERVAS</a></li>
-            <hr>
-            <li><a href="calendario.php">CALENDARIO</a></li>
-            <hr>
-            <li><a href="salas.php">SALAS</a></li>
-            <hr>
-            <li><a href="peticionesUsuarios.php">PETICIONES</a></li>
-            <hr>
-            <li><a href="usuariosAgregados.php">AGREGAR USUARIOS</a></li>
-            <hr>
-            <li><a href="areaDeReportes.php">AREA DE REPORTES</a></li>
-            <hr>
-            <li><a href="#">NOMBRE DE USUARIO<img src="img/usuario.png" alt="" class="usuario"></a></li>
+            
             <hr>
         </ul>
     </nav>
+    <div class="tituloAgregar"> <h1>ÁREA DE REPORTES</h1> </div>
 
-    <div class="tituloAgregar"> <h1>AREA DE REPORTES</h1> </div>
-
-    <div class="descripcionAgregar">
-        <p id="Seccion">Seccion</p>
-    </div>
     <div class="inputsAgregar">
-        <form method="POST" action="../controlador/ReporteController.php">
+        <form id="reporteForm" class="centrar">
             <select name="seccionReporte" id="seccion" required>
-                <option value="usuario">Usuario</option>
-                <option value="reserva">Reserva</option>
-                <option value="sala">Sala</option>
+                <option value="" hidden>Reporte</option>
+                <option value="todoRegistros">Todos los registros</option>
+                <option value="equipamientoMasUsado">Equipamiento más usado</option>
+                <option value="salasMasUsadas">Salas más usadas</option>
+            </select>
+            
+            <select name="formatoReporte" id="formato" required>
+                <option value="" hidden>Formato</option>
+                <option value="pdf">PDF</option>
+                <option value="excel">Excel</option>
             </select>
             
             <div class="botonAgregar">
-                <input type="submit" name="boton" value="DESCARGAR PDF">
+                <input type="button" name="boton" value="DESCARGAR" onclick="generarReporte()">
             </div>
         </form>   
     </div>
     <script src="js/verificar_sesion.js"></script>
     <script src="js/menu.js"></script>
+    <script>
+        function generarReporte() {
+            const seccion = document.getElementById('seccion').value;
+            const formato = document.getElementById('formato').value;
+            const url = `../controlador/ReporteController.php?seccionReporte=${seccion}&formatoReporte=${formato}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>

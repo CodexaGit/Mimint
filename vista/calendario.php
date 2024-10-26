@@ -3,85 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/calendario.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/menu.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.min.js'></script>
+    <link rel="stylesheet" href="css/calendario.css">
     <title>Calendario</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php include("alerta.php")?>
+    <link rel="stylesheet" href="css/alertas.css">
 </head>
 <body>
-    <nav>
-        <div class="menu-btn">
-            <img src="img/menu.png" class="menu-icon">
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">MENU DE OPCIONES</a></li>
-            <hr>
-            <li><a href="inicio.php">INICIO</a></li>
-            <hr>
-            <li><a href="reuniones.php">REUNIONES</a></li>
-            <hr>
-            <li><a href="calendario.php">CALENDARIO</a></li>
-            <hr>
-            <li><a href="salas.php">SALAS</a></li>
-            <hr>
-            <li><a href="peticionesUsuarios.php">PETICIONES</a></li>
-            <hr>
-            <li><a href="usuariosAgregados.php">AGREGAR USUARIOS</a></li>
-            <hr>
-            <li><a href="areaDeReportes.php">AREA DE REPORTES</a></li>
-            <hr>
-            <li><a href="#">NOMBRE DE USUARIO<img src="img/usuario.png" alt="" class="usuario"></a></li>
-            <hr>
-        </ul>
-    </nav>
-    <div id="Calendario">
-        <img src="img/Calendar Collapsed (Light).png" alt="">
+<nav>
+    <div class="menu-btn">
+        <p class="separadorUsuario nombreMenu"></p>
+        <img src="img/menu.png" class="menu-icon">
     </div>
-
+    <ul class="nav-links">
+        <!-- Aquí puedes agregar los enlaces del menú -->
+    </ul>
+</nav>
+<div class="contenedorCalendario">
+    <div class="titulo pantallaChica">
+        <h1>CALENDARIO</h1>
+    </div>
+    <div id="Calendario">
+        <div id='calendar'></div>
+    </div>
     <div class="containerA">
-        <div id="titulo">
+        <div class="titulo pantallaGrande">
             <h1>CALENDARIO</h1>
         </div>
         <div id="agregarReunion">
-            <p>AGREGAR REUNION</p>
-            <img src="img/Boton de mas.png" alt="">
+            <p>AGREGAR REUNIÓN</p>
+            <a href="reservas.php"><img src="img/Boton de mas.png" alt="Agregar reunión"></a>
         </div>
         <div id="modoYo">
             <p>MODO YO</p>
-            <img id="rectangle" src="img/Rectangle 87.png" alt="">
+            <div>
+                <input type="checkbox" id="modoYoCheckbox">
+            </div>
             <div class="tooltip">
-                <img id="ejemplo" src="img/Group 17.png" alt="">
+                <img id="ejemplo" src="img/Group 17.png" alt="Ejemplo">
                 <span class="tooltiptext">
-                    <p style="padding-left: 0;">ESTA OPCION HABLITARA VER SOLAMENTE LAS SALAS QUE SE REGISTRARON PARA USTED</p>
+                    <p style="padding-left: 0;">ESTA OPCIÓN HABILITARÁ VER SOLAMENTE LAS SALAS QUE SE REGISTRARON PARA USTED</p>
                 </span>
             </div>
         </div>
         <div id="salas">
-            <?php
-            // Definir la variable $reuniones
-            $reuniones = isset($reuniones) ? $reuniones : [];
-
-            // Verificar si $reuniones es un array y no está vacío
-            if (is_array($reuniones) && !empty($reuniones)): 
-                foreach ($reuniones as $reunion): ?>
-                    <div class="sala">
-                        <img src="img/MenosC.png" alt="">
-                        <div class="texto">
-                            <div><p><?php echo htmlspecialchars($reunion['sala']); ?></p></div>
-                            <div><p><?php echo htmlspecialchars($reunion['hora']); ?></p></div>
-                            <div><p><?php echo htmlspecialchars($reunion['duracion']); ?></p></div>
-                        </div>
-                    </div>
-                <?php endforeach; 
-            else: ?>
-                <p>No hay reuniones disponibles.</p>
-            <?php endif; ?>
+            <!-- Aquí puedes agregar el contenido de las salas -->
         </div>
     </div>
-    <script src="js/verificar_sesion.js"></script>
-    <script src="js/menu.js"></script>
+</div>
+
+<script src="js/verificar_sesion.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/calendario.js"></script>
 </body>
 </html>

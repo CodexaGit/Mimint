@@ -11,7 +11,7 @@ nav {
 
 .nav-links {
     list-style: none;
-    position: absolute;
+    position: fixed;
     top: -800px;
     right: 0;
     width: 20%;
@@ -21,6 +21,8 @@ nav {
     padding: 0;
     transition: top 0.3s ease, right 0.3s ease;
     overflow: hidden;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 .nav-links li {
@@ -57,14 +59,14 @@ nav {
 }
 
 .nav-links.active {
-    top: -25px;
+    top: 0;
     right: 0;
 }
 
 .menu-btn {
     display: flex;
     cursor: pointer;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     position: absolute;
     right: 20px;
@@ -74,15 +76,48 @@ nav {
 .menu-btn__burger {
     display: none;
 }
-
+.separador{
+    color: #FFFFFF90;
+}
 .menu-icon {
     width: 40px;
     height: 40px;
     object-fit: contain;
+    position: fixed;
+    top:20px;
+    right: 20px;
     z-index: 5;
 }
 .usuario{
     position: absolute;
     top: -10px;
-    margin-left: 30px;
+    margin-left: 20px;
+}
+.separadorUsuario{
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    position: fixed;
+    top: 17px;
+    right: 60px;
+    margin: 0px;
+}
+@media(max-width:1000px){
+    .nav-links{
+        width: 30%;
+    }
+}
+@media(max-width:700px){
+    .nav-links{
+        width: 40%;
+    }
+}
+@media(max-width:500px){
+    .nav-links{
+        width: 50%;
+    }
+    .menu-btn{
+        width: 100px;
+    }
+
 }

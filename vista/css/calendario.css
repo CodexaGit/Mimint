@@ -1,18 +1,54 @@
+
+.fc-theme-standard td, .fc-theme-standard th{
+    border: none;
+}
+body{
+    margin: 0px;
+}
+.fc-theme-standard .fc-scrollgrid{
+    border: none;
+}
+.fc-daygrid-day-top a, .fc-scrollgrid-sync-inner a{
+    color: #000;
+}
+.pantallaChica h1{
+    margin-top: 70px;
+}
+
+#calendar{
+    padding: 10px;
+    background-color: #EBEBEB;
+    border-radius: 15px;
+}
 body{
     background: linear-gradient(135deg, rgba(100,204,197,1) 10%, rgba(4,54,74,1) 100%);
     background-attachment: fixed;
     font-family: 'Sawarabi Gothic', sans-serif;
 }
 
+* {
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
+}
 
-#Calendario img{
+*::-webkit-scrollbar {
+    display: none;
+}
 
+#Calendario {
     position: absolute;
     left: 0;
     top: 0;
-    width: 50.8vw;
-    height: auto;
-   
+    width: 48vw;
+    height: 100vh;
+}
+
+.fc .fc-view-harness {
+    overflow: hidden;
+}
+
+.fc .fc-view-harness::-webkit-scrollbar {
+    display: none; 
 }
 
 .containerA{
@@ -23,104 +59,108 @@ body{
     height: 80vh;
     display: grid;
     grid-template-rows: 20vh 8vh 8vh 1fr;
-
 }
 
-
-#titulo{
-
+.titulo{
     display: flex;
     justify-content: center;
     align-items: end;
     font-size: 1.5vw;
-    color: #ffff
-
+    color: #ffff;
 }
 
 #agregarReunion{
-
-display: flex;
-justify-content: start;
-
+    display: flex;
+    justify-content: start;
 }
 
 #agregarReunion p{
-
-    font-size: 1.35vw;
-padding-left: 0.74vw;  
-color: #ffff
-
-    }
-     
-
+    padding-left: 0.74vw;  
+    color: #ffff;
+}
+.menosC{
+    height: 54px;
+    border: 1px solid white;
+    background-color: #ffffff49;
+    padding: 17px;
+}
 #agregarReunion img{
-
-margin-top: 1.6vh;
-margin-left: 1vw;
-width: 2.3vw ;
-height: fit-content;
-
+    margin-top: 1.6vh;
+    margin-left: 10px;
+    width: 2.3vw;
+    height: fit-content;
 }
 
 #modoYo{
-
     display: flex;
     justify-content: start;
-
 }
 
 #modoYo p{
-
-
-    font-size: 1.35vw;
     padding-left: 7.5vw;
-    color: #ffff
-
-
-    }
-
+    color: #ffff;
+}
 
 #modoYo #rectangle{
-margin-top: 1.8vh;
-margin-left: 1vw;
-
-    width:2vw ;
+    margin-top: 1.8vh;
+    margin-left: 1vw;
+    width: 2vw;
     height: fit-content;
-
-
 }
 
 #modoYo #ejemplo{
     margin-top: 1.6vh;
     margin-left: 2vw;
-    
-    width:2.3vw ;
+    width: 2.3vw;
     height: fit-content;
-
-
 }
 
 #salas{
-
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-        
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    height: 120%;
+    overflow-y: scroll;
+}
+#salas::-webkit-scrollbar {
+    width: 12px; 
 }
 
+#salas::-webkit-scrollbar-track {
+    background: #8b8b8b8c; 
+}
+
+#salas::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+#salas::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
+#salas::-webkit-scrollbar-button {
+    display: none; 
+}
+
+
+#salas {
+    scrollbar-width: thin;
+    scrollbar-color: #ffffffd6 #ffffff8f;
+}
+
+/* Ocultar los iconos de la barra de desplazamiento en Firefox */
+#salas::-moz-scrollbar-button {
+    display: none; /* Ocultar los botones de la barra de desplazamiento */
+}
 #sala1{
-
     display: flex;
-    border-bottom: 2px solid rgb(255, 255, 255) ;
-
-        }
-
-
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
 
 #sala1 div{
-
     height: 0.5vh;        
-    
-        }    
+}
 
 #sala1 #texto{
     width: 100%;
@@ -128,47 +168,28 @@ margin-left: 1vw;
     justify-content: space-around;
     margin-top: 4.5vh;
     color: #ffff;
-
-
 }
 
 #sala1 img{
-    
     margin-left: 2vw;
     margin-top: 6vh;
     width: 3.5vw;
     height: fit-content;
     display: flex;
-
-
 }
 
 #sala1 p{
-    
     display: flex;
     margin-top: 2vh;
-    font-size: 2.5vw ;
-    
-
-
-        }
-
-
-
-
-
-/* TOOLTIPS CSS*/
-
+    font-size: 2.5vw;
+}
 
 .tooltip {
     position: relative;
     display: inline-block;
-    
-  }
+}
 
- 
-
-  .tooltip .tooltiptext {
+.tooltip .tooltiptext {
     visibility: hidden;
     margin-left: 30px;
     width: 25vw;
@@ -177,11 +198,169 @@ margin-left: 1vw;
     border-radius: 6px;
     font-size: 1vw;
     text-align: center;
-    /* Position the tooltip */
+
     position: absolute;
     z-index: 1;
-  }
-  
-  .tooltip:hover .tooltiptext {
+}
+
+.tooltip:hover .tooltiptext {
     visibility: visible;
-  }
+}
+
+.fc .fc-daygrid-day-frame{
+    position: relative;
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{
+    display: none;
+}
+
+.fc .fc-daygrid-day-frame {
+    border: none;
+}
+
+.fc .fc-daygrid-day-top {
+    border: none;
+}
+
+.fc .fc-daygrid-day {
+    border: none;
+    border-radius: 20%;
+}
+
+
+.sala{
+    display: flex;
+    flex-direction: row;
+    height: 90px;
+    background-color: #ffffff25;
+}
+
+h1{
+    font-size: 40px;
+}
+.texto {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    color: white;
+    border: 0.5px solid white;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 27px;
+}
+
+.fc-event-custom {
+    padding: 5px;
+    border-radius: 5px;
+    color: white; 
+}
+
+.fc-day-with-event {
+    background-color: #76bbff;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: #93c0ec; 
+    color: #000; 
+}	
+
+.fc-day-selected {
+    background-color: #4fa5fc; 
+    color: #000; 
+}
+
+.fc-day-past {
+
+    color: #00000075; 
+    opacity: 0.6; 
+}
+.pantallaChica{
+    display: none;
+}
+
+
+input[type="checkbox"] {
+    width: 40px;
+    padding-top: 10px;
+    height: 40px;
+    accent-color: white;
+}
+@media (max-width:1200px){
+    .pantallaChica{
+        display: block;
+        text-align: center;
+    }
+    .tooltip{
+        display: none;
+    }
+    .pantallaGrande{
+        display: none;
+    }
+    #Calendario{
+        position: relative;
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 40px;
+        height: auto;
+    }
+    .containerA{
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin: 0 auto;
+    }
+    .sala{
+        width: 60%;
+        margin: 0px auto;
+    }
+    #agregarReunion, #modoYo{
+        width: 40%;
+        margin: 0 auto;
+        justify-content: end;
+    }
+    .texto{
+        font-size: 20px;
+    }
+    #agregarReunion img {
+        width: 40px;
+
+    }
+
+}
+@media (max-width:800px){
+    #Calendario{
+        width: 90%;
+    }
+    .sala{
+        width: 80%;
+    }
+}
+@media (max-width:600px){
+    .sala{
+        width: 100%;
+        height: 60px;
+    }
+    .fc .fc-toolbar-title{
+        font-size: large;
+    }
+    #agregarReunion, #modoYo{
+        width: 80%;
+    }
+    .fc .fc-button{
+        padding: 3px;
+    }
+    .menosC{
+        height: 50px;
+        padding: 4px;
+    }
+    .texto{
+        font-size: 15px;
+    }
+}

@@ -8,35 +8,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Agregar nuevos campos de equipamiento
-    const addEquipamientoBtn = document.getElementById('add-equipamiento');
-    if (addEquipamientoBtn) {
-        addEquipamientoBtn.addEventListener('click', function() {
-            const container = document.getElementById('equipamiento-container');
-            const newEquipamiento = document.createElement('div');
-            newEquipamiento.classList.add('equipamiento-item');
-            newEquipamiento.innerHTML = `
-                <input type="text" name="equipamiento[]" class="equipamiento-input" placeholder="Nombre del equipamiento">
-                <input type="number" name="cantidad[]" class="cantidad-input" placeholder="Cantidad" min="1">
-            `;
-            container.appendChild(newEquipamiento);
-        });
-    } else {
-        console.error('Elemento #add-equipamiento no encontrado');
-    }
+    // Delegación de eventos para agregar nuevos campos de equipamiento
+    $('body').on('click', '#add-equipamiento', function() {
+        const container = document.getElementById('equipamiento-container');
+        const newEquipamiento = document.createElement('div');
+        newEquipamiento.classList.add('equipamiento-item');
+        newEquipamiento.innerHTML = `
+            <input type="text" name="equipamiento[]" class="equipamiento-input" placeholder="Nombre del equipamiento">
+            <input type="number" name="cantidad[]" class="cantidad-input" placeholder="Cantidad" min="1">
+        `;
+        container.appendChild(newEquipamiento);
+    });
 
-    // Eliminar el último campo de equipamiento
-    const removeEquipamientoBtn = document.getElementById('remove-equipamiento');
-    if (removeEquipamientoBtn) {
-        removeEquipamientoBtn.addEventListener('click', function() {
-            const container = document.getElementById('equipamiento-container');
-            if (container.children.length > 1) {
-                container.removeChild(container.lastChild);
-            }
-        });
-    } else {
-        console.error('Elemento #remove-equipamiento no encontrado');
-    }
+    // Delegación de eventos para eliminar el último campo de equipamiento
+    $('body').on('click', '#remove-equipamiento', function() {
+        const container = document.getElementById('equipamiento-container');
+        if (container.children.length > 1) {
+            container.removeChild(container.lastChild);
+        }
+    });
 
     // Autocompletar para el campo de equipamiento
     $(document).on('input', '.equipamiento-input', function() {

@@ -1,0 +1,12 @@
+9-10 lore:
+SalaController.php -
+SalaModel.php -
+listadoSala.php -
+CaracteristicasController.php -
+CaracteristicasModel.php -
+listadoCaracteristicas.php -
+
+lore 11-10
+cambie el form del buscador en peticionesReserva -
+cambie AuthController.php y Registro.php, borrando la creacion del objeto msqli -
+cree buscador.php -

@@ -1,0 +1,32 @@
+.swal2-popup,.swal2-modal,.swal2-icon-warning,.swal2-show{
+    border-radius: 0px;
+    background: linear-gradient(135deg, rgba(100,204,197,1) 0%, rgba(4,54,74,1) 100%);
+    font-family: 'Sawarabi Gothic', sans-serif;
+    color: white;
+}
+.swal2-cancel{
+    border: rgb(136, 12, 12) solid 1px;
+    background-color: red;
+    font-size: 17px;
+}
+
+.btn-success, .swal2-confirm  {
+    border: rgb(36, 89, 32) solid 1px;
+    background-color: rgb(25, 182, 51);
+    font-size: 17px;
+}
+.swal2-actions{
+    column-gap: 20px;
+}
+.btn-success:hover, .swal2-confirm:hover{
+    background-color: rgb(49, 102, 45);
+}
+.btn-success:active, .swal2-confirm:active{
+    background-color: rgb(36, 89, 32);
+}
+.swal2-cancel:hover{
+    background-color: rgb(150, 26, 26);
+}
+.swal2-cancel:active{
+    background-color: rgb(136, 12, 12);
+}

@@ -6,14 +6,65 @@ class UsuarioController {
 
     public function __construct($conexion) {
         $this->usuarioModel = new UsuarioModel($conexion);
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
     }
-
     public function listarUsuarios($estado = 'aprobado', $filtro = 'asc', $busqueda = null) {
         try {
-            return $this->usuarioModel->obtenerUsuarios($estado, $filtro, $busqueda);
+            $resultado = $this->usuarioModel->obtenerUsuarios($estado, $filtro, $busqueda);
+            $usuariosArray = [];
+            while ($usuario = $resultado->fetch_assoc()) {
+                $usuariosArray[] = $usuario;
+            }
+            return ['status' => 'success', 'data' => $usuariosArray];
         } catch (Exception $e) {
-            echo $e->getMessage();
-            exit;
+            return ['status' => 'error', 'message' => $e->getMessage()];
+        }
+    }
+
+    public function buscarUsuarios($busqueda = ''){
+        try {
+            $resultado = $this->usuarioModel->obtenerUsuarios(null, 'asc', $busqueda);
+            if ($resultado === false) {
+                throw new Exception('Error al obtener los usuarios.');
+            }
+            $usuariosArray = [];
+            while ($usuario = $resultado->fetch_assoc()) {
+                $usuariosArray[] = $usuario;
+            }
+            return ['status' => 'success', 'data' => $usuariosArray];
+        } catch (Exception $e) {
+            return ['status' => 'error', 'message' => $e->getMessage()];
+        }
+    }
+
+    public function listarTodosUsuarios() {
+        try {
+            $resultado = $this->usuarioModel->obtenerUsuarios();
+            if ($resultado === false) {
+                throw new Exception('Error al obtener los usuarios.');
+            }
+            $usuariosArray = [];
+            while ($usuario = $resultado->fetch_assoc()) {
+                $usuariosArray[] = $usuario;
+            }
+            return ['status' => 'success', 'data' => $usuariosArray];
+        } catch (Exception $e) {
+            return ['status' => 'error', 'message' => $e->getMessage()];
+        }
+    }
+
+    public function listarDocentesyAdmins() {
+        try {
+            $resultado = $this->usuarioModel->obtenerDocentesyAdmins();
+            $usuariosArray = [];
+            while ($usuario = $resultado->fetch_assoc()) {
+                $usuariosArray[] = $usuario;
+            }
+            return ['status' => 'success', 'data' => $usuariosArray];
+        } catch (Exception $e) {
+            return ['status' => 'error', 'message' => $e->getMessage()];
         }
     }
 
@@ -25,8 +76,19 @@ class UsuarioController {
         return $this->usuarioModel->actualizarEstado($documento, $rol, 'Rechazado');
     }
 
+    public function modificarUsuario($documento, $nombre, $apellido, $email, $rol, $estado) {
+        return $this->usuarioModel->modificarUsuario($documento, $nombre, $apellido, $email, $rol, $estado);
+    }
+
+    public function eliminarUsuario($documento) {
+        return $this->usuarioModel->eliminarUsuario($documento);
+    }
+
+    public function agregarUsuario($documento, $nombre, $apellido, $email, $rol, $estado) {
+        return $this->usuarioModel->añadirUsuario($documento, $nombre, $apellido, $email, $rol, $estado);
+    }
+
     public function verificarSesion() {
-        session_start();
         if (isset($_SESSION['documentoUsuario'])) {
             $documentoUsuario = $_SESSION['documentoUsuario'];
             return $this->usuarioModel->obtenerUsuarioPorDocumento($documentoUsuario);
@@ -35,7 +97,6 @@ class UsuarioController {
         }
     }
 
-    // Método para manejar respuestas AJAX
     public function responderJSON($data) {
         header('Content-Type: application/json');
         echo json_encode($data);

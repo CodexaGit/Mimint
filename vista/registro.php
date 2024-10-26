@@ -9,12 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $nombreCompleto = $_POST['nombre'];
 
-    // Crear una nueva conexión a la base de datos
-    $conexion = new mysqli('localhost', 'root', '', 'CODEXA_MIMINT');
-    if ($conexion->connect_error) {
-        die(json_encode(["error" => "Error de conexión: " . $conexion->connect_error]));
-    }
-
     // Crear una instancia del controlador de registro
     $controller = new RegistroController($conexion);
     $resultado = $controller->registrarUsuario($documento, $contrasena, $email, $nombreCompleto);

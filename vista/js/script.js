@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     // Seleccionar el interruptor
     const toggle = document.getElementById('toggle');
     const toggle1 = document.getElementById('toggle1');

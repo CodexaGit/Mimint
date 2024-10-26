@@ -85,12 +85,12 @@ CREATE TABLE `reserva` (
 ) ENGINE=InnoDB;
 
 INSERT INTO `reserva` (`id`, `dia`, `horainicio`, `horafin`, `cantidadpersonas`, `descripcion`, `docente`, `sala`, `estado`) VALUES
-(1, '2024-08-15', '16:00:00', '18:00:00', 10, NULL, 56380006, 'Sala de Estudio', 'Pendiente'),
-(2, '2024-08-19', '10:00:00', '13:00:00', 15, 'Este es una reunión de padres ', 55667788, 'Laboratorio de ciencias', 'Pendiente'),
-(3, '2024-09-13', '12:00:00', '13:00:00', 21, 'Se busca realizar una clase extra para los estudiantes que tengan bajas', 66778899, 'Sala de Música', 'Pendiente'),
+(1, '2024-08-15', '16:00:00', '18:00:00', 10, NULL, 56380006, 'Sala de Estudio', 'Rechazado'),
+(2, '2024-08-19', '10:00:00', '13:00:00', 15, 'Este es una reunión de padres ', 55667788, 'Laboratorio de ciencias', 'Rechazado'),
+(3, '2024-09-13', '12:00:00', '13:00:00', 21, 'Se busca realizar una clase extra para los estudiantes que tengan bajas', 66778899, 'Sala de Música', 'Aprobado'),
 (4, '2024-10-09', '13:30:00', '15:00:00', 12, 'Esta es una reunión de todos los profesores de Bachillerato tecnológico', 33445566, 'Sala de Profesores', 'Pendiente'),
-(5, '2024-09-19', '10:00:00', '12:00:00', 5, 'Se busca hacer una reunión con todos los delegados de 6to', 99887766, 'Sala de Estudio', 'Pendiente'),
-(6, '2024-10-01', '12:00:00', '15:00:00', 10, 'Se busca reforzar conocimientos de php a alumnos de 6to tecnológico', 56380006, 'Sala de informatica', 'Pendiente');
+(5, '2024-09-19', '10:00:00', '12:00:00', 5, 'Se busca hacer una reunión con todos los delegados de 6to', 99887766, 'Sala de Estudio', 'Aprobado'),
+(6, '2024-10-01', '12:00:00', '15:00:00', 10, 'Se busca reforzar conocimientos de php a alumnos de 6to tecnológico', 56380006, 'Sala de informatica', 'Aprobado');
 
 CREATE TABLE `sala` (
   `nombre` varchar(30) NOT NULL,
@@ -126,9 +126,9 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`documento`, `email`, `contrasena`, `nombre`, `apellido`, `rol`, `estado`) VALUES
 (22334455, 'pedro.lopez@gmail.com', '4321', 'Pedro', 'Lopez', 'Admin', 'Aprobado'),
 (33445566, 'sofia.martinez@gmail.com', 'SofiaM123', 'Sofia', 'Martinez', 'Estudiante', 'Aprobado'),
-(44556677, 'cfernandez@impulso.edu.uy', 'Carlos1111', 'Carlos', 'Fernandez', 'docente', 'Aprobado'),
+(44556677, 'cfernandez@impulso.edu.uy', 'Carlos1111', 'Carlos', 'Fernandez', 'Docente', 'Aprobado'),
 (55667788, 'laura.fernandez@gmail.com', 'FernandezL21031', 'Laura', 'Fernandez', 'Estudiante', 'Rechazado'),
-(56380006, 'sneves@impulso.edu.uy', 'seba', 'Sebastian', 'Neves', 'docente', 'Aprobado'),
+(56380006, 'sneves@impulso.edu.uy', 'seba', 'Sebastian', 'Neves', 'Admin', 'Aprobado'),
 (66778899, 'pablo.sanchez@gmail.com', 'PabloPablo11', 'Pablo', 'Sanchez', 'Docente', 'Aprobado'),
 (87654321, 'maria.garcia@gmail.com', 'Contraseñaña1111', 'Maria', 'Garcia', 'Docente', 'Aprobado'),
 (99887766, 'javier.mendez@gmail.com', 'Javi123012302', 'Javier', 'Mendez', 'Admin', 'Rechazado');

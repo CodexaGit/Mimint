@@ -11,7 +11,9 @@ body{
 .logo1{
     position: absolute;
     float: left;
-    max-width: 75vh;
+    top: -14%;
+    left: -14%;
+    width: 50%;
 }
 .titulo{
     position: absolute;
@@ -110,6 +112,7 @@ body{
     height: 50px;
     object-fit: contain;
 }
+
 /* POP UP TEMPORAL */
 .ocultoHECHO {
     display: none;
@@ -344,7 +347,7 @@ body{
     padding: 5px;
 }
 .datosP {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     padding: 10px 0px 50px 20px;
@@ -414,6 +417,7 @@ body{
 .datos2{
     display: flex;
     color: #04364A;
+    
 }
 .sino{
     display: flex;
@@ -424,12 +428,9 @@ body{
     padding: 5px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
-.tituloTablaP2 p{
-    position: relative;
-    right: -80%;
-    z-index: 2;
-}
+
 .datoNum{
     background-color: rgb(255, 255, 255, 0.8);
     padding: 60px;
@@ -487,6 +488,7 @@ body{
     background-color: rgb(255, 255, 255, 0.5);
     font-size: 20px;
     padding: 30px 10%  30px 10%;
+    cursor: pointer;
 }
 .todaSalas p:hover{
     color: white;
@@ -601,7 +603,6 @@ display: flex;
 
 .horas {
     font-weight: bold;
-    font-size: 35px;
 }
 .horasP{
     font-size: 20px;
@@ -749,9 +750,14 @@ justify-content: center;
 
 }
 
+.centrar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+}
 
-
-.inputsAgregar #seccion{
+.inputsAgregar #seccion, .inputsAgregar  #formato{
 
     width: 53vw;
     height: 4.5vh;
@@ -768,7 +774,6 @@ justify-content: center;
 display: flex;
 justify-content: center;
 align-items: center;
-margin-top: 53vh;
 
 }
 
@@ -782,6 +787,7 @@ margin-top: 53vh;
     background-color: rgba(255, 255, 255, 0.4);
     color:  #04364A;
     border: none;
+    cursor: pointer;
 }
 
 
@@ -835,14 +841,12 @@ margin-top: 53vh;
     text-align: center;
     font-size: xx-large;
 }
-#formularioReservas input[type="number"] {
-    width: 5vh;
-}
+
 #formularioReservas input::placeholder, textarea::placeholder {
     color: rgba(255, 255, 255, 0.582);
 }
 #formularioReservas select {
-    width: 10vh;
+
     background-color: rgba(255, 255, 255, 0);
     color: #ffffff;
     font-size: x-large;
@@ -920,20 +924,310 @@ a{
     width: 61%;
     margin-right: 5%;
 }
-
+.caracteristicasContainer .txtp2{
+    display: block;
+    padding-left: 20px;
+}
+.caracteristicasContainer li{
+    display: none;
+}
+.caracteristicasContainer{
+    margin-bottom: 10px;
+}
 
 #botonEliminarUsuario{
     cursor: pointer;
     width: 40px;
     height: 40px;
     cursor: pointer;
-    background-color: rgb(255, 255, 255, 0.6);
+    background-color: rgb(0, 0, 0, 0.6);
     border: none;
     margin-left: 4px;
-    background-image: url(../img/tick.png);
+    background-image: url(../img/menosC.svg);
+    filter: invert(1);
     background-size: cover;
 }
 #formularioEliminarUsuario{
     display: flex;
     align-items: center;
+}
+
+#formAgregarSala{
+    width: 100%;
+}
+
+.contenidoFormularioSala{
+    width: 100%;
+    display: flex;
+}
+
+#inicioContenido{
+    overflow: hidden;
+}
+.textoBotones{
+    display: none;
+}
+.switchPeticiones{
+    display: flex;
+    flex-direction: row;
+}
+.anchoTotal{
+    width: 80%;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.usuarioLogo{
+    scale: 0.75;
+}
+
+
+@media (max-width:2000px){
+    .logo1{
+        width: 60%;
+        left: -16%;
+    }
+}
+@media (max-width:1850px){
+    .logo1{
+        top: -20%;
+        width: 70%;
+        left: -18%;
+    }
+    
+}
+@media (max-width:1600px){
+    .logo1{
+        width:50%;
+        top: -20%;
+        left: -13%;
+    }
+    .numerosP{
+        width: 70%;
+    }
+    .textosP{
+        width: 70%;
+    }
+}
+@media (max-width:1500px){
+    .logo1{
+        top: -10%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .contenidoImagenInicio {
+        width: 100%;
+        height: 500px;
+        margin-top: 100px;
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    }
+    #formularioReservas input, #formularioReservas span{
+        font-size: x-large;
+
+    }
+    #formularioReservas select {
+        font-size: large;
+        width: auto;
+    }
+    .numerosP{
+        width: 80%;
+    }
+    .textosP{
+        width: 80%;
+    }
+    .contenido{
+        display: flex;
+        flex-direction: column-reverse;
+
+    }
+    body,html,section{
+        height: 100%;
+    }
+    
+    .logo1 {
+        position: static;
+        width: 40%; 
+        display: block;
+        margin: 0 auto; 
+    }
+    .titulo {
+        position: static;
+        text-align: center;
+        font-size: 5vh;
+        margin: 0px auto;
+        width: 100%;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width:1100px){
+    .numerosP{
+        width: 90%;
+    }
+    .d{
+        margin: 0px;
+    }
+    .o{
+        position: static;
+    }
+    .datos{
+        display: flex;
+        flex-direction: column;
+    }
+    .datosP{
+        flex-direction: column;
+    }
+    .textosP{
+        width: 90%;
+    }
+    .descrip textarea{
+        width: 80%;
+    }
+    .logo1{
+        width: 60%;
+    }
+}
+.formulario-oculto{
+    display: none;
+}
+@media (max-width:1000px){
+    .numerosP{
+        width: 100%;
+    }
+    .textosP{
+        width: 100%;
+    }
+    .descrip textarea{
+        width: 90%;
+    }
+    #salas-container{
+        display: none;
+    }
+    section{
+        margin-top: 10%;
+    }
+    .todaSalas{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #burgerTitulo{
+        min-width: 70%;
+    }
+    .horarios.sp{
+        display: none;
+    }
+    #salas-container.active{
+        display:block;
+    }
+    .formulario-oculto{
+        display: block;
+    }
+    .datoReunion{
+        margin: 2px auto;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+    }
+    #formularioReservas input, #formularioReservas select, #formularioReservas input[type="number"]{
+        width: 100%;
+        background-color: #ffffff20;
+        text-align: center;
+    }
+
+    .componentes{
+        flex-direction: column;
+    }
+    .textoBotones{
+        display: block;
+    }
+    .contenedorBotones{
+        display: flex;
+        align-items: center;
+        border: 1px solid white;
+        width: 100%;
+        background-color: #FFFFFF20;
+        justify-content: space-between;
+    }
+    .botones img{
+        margin: 0px;
+    }
+    .info{
+        margin: 0px;
+        margin: 0px auto;
+        width: 90%;
+        text-align: center;
+        margin-top: 100px;
+    }
+    .tituloUsu{
+        font-size: 30px;
+    }
+
+}
+@media (max-width:700px){
+    .titulo{
+        font-size: 3.5vh;
+    }
+    .tablaEquipo{
+        width: 300px;
+    }
+    .inputsAgregar #seccion, .inputsAgregar #formato, .descripcionAgregar #Seccion, .botonAgregar input{
+        font-size: 3vw;
+    }
+    .tituloAgregar h1{
+        font-size: 9vw;
+    }
+    .anchoTotal{
+        width: 100%;
+    }
+    .datos2{
+        flex-direction: column;
+    }
+    .sino{
+        flex-direction: column;
+    }
+    #search-input{
+        width: 100%;
+    }
+    .switchPeticiones{
+        justify-content: center;
+    }
+    .search-container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .todaSalas{
+        width: 40%;
+    }
+    .valor{
+        font-size: 20px;
+    }
+    .contenido{
+        display: flex;
+        height:100%;
+        justify-content: center;
+    }
+    .contenidoImagenInicio{
+        height: 300px;
+    }
+}
+
+@media (max-width:450px){
+    .titulo{
+        font-size: 2.7vh;
+    }
+    .logo1{
+        width: 60%;
+    }
 }

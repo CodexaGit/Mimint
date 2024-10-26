@@ -1,0 +1,303 @@
+th{
+    background-color: rgba(0, 94, 86, 0.45);
+
+}
+*{
+    color: white;
+}
+td{
+    background-color: rgba(0, 94, 86, 0.4);
+}
+table{
+    border-spacing: 0;
+    max-width: 70%;
+  border-collapse: collapse;
+  height: max-content;
+}
+.centrado{
+    text-align: center;
+}
+.uno{
+    background-color: rgba(0, 94, 86, 0.602);
+}
+head{
+    width: 100%;
+}
+body{
+    height: 100%;
+    width: 100%;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+#search-button {
+    padding: 0.4%;
+    background-color: #0F526D;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+}
+#search-input {
+    margin-right: 0px;
+    width: 98%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    transition: none;
+    background-color: white;
+}
+#search-input:focus {
+    outline: none;
+    scale: 1;
+    border: 1px solid black;
+}
+.buscador{
+    width: 50%;
+}
+.contenedorListados{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+input[type="text"], input[type="number"], input[type="password"], input[type="email"], input[type="date"], input[type="time"]{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    letter-spacing: 1px;
+    font-size: large;
+    color:white;
+    border-bottom: 2px solid rgb(184, 250, 255);
+    transition: all 0.3s;
+}
+
+textarea{
+    resize: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 90%;
+    height: 100px;
+    border: none;
+    padding: 10px;
+}
+select{
+    background-color: rgba(18, 176, 163, 0.4);
+    color: white;
+    font-size: 17px;
+}
+label{
+    margin: 0px;
+}
+option{
+    color: black;
+}
+#formModificarReserva, #formAgregarReserva{
+    row-gap: 0px;
+}
+
+input {
+    color-scheme: dark;
+    cursor: pointer;
+}
+input[readonly]{
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    pointer-events: none;
+}
+.horas{
+    display: flex;
+    column-gap: 20px;
+}
+.hora{
+    display: flex;
+    flex-direction: column;
+}
+.botonFormulario {
+    border: none;
+    font-size: large;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    letter-spacing: 2px;
+    color: #04364A;
+    background-color: #ffffff6e;
+    transition: box-shadow 0.2s ease;
+    cursor: pointer;
+    margin-top: 5px;
+}
+input[type='submit'][value='Modificar'], input[type='submit'][value='Eliminar'], .btn-modificar, .btn-eliminar{
+    border: none;
+    font-size: large;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 7px;
+    margin: 3px;
+    letter-spacing: 2px;
+    color: #ffffff;   
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    scale: 0.8;
+}
+
+input[type='submit'][value='Modificar']:active, input[type='submit'][value='Eliminar']:active, .btn-modificar:active, .btn-eliminar:active{
+    box-shadow: inset 2px 2px 1px #04364a, inset -2px -2px 1px rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+
+}
+
+input[type='submit'][value='Modificar'],.btn-modificar{
+    background-color: #39a939;
+
+}
+input[type='submit'][value='Eliminar'],.btn-eliminar{
+    background-color: #b83939;
+}
+
+
+.botonFormulario:hover {
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2), 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.botonFormulario:focus {
+    letter-spacing: 2px;
+}
+
+.botonFormulario:active {
+    box-shadow: inset 2px 2px 1px #04364a, inset -2px -2px 1px rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+    transition: box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
+    outline: none;
+    scale:1.1;
+    letter-spacing: 2px;
+    background-color: rgba(0, 94, 86, 0.4);
+    
+}
+
+.formulario{
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+    width: auto;
+    padding: 20px;
+    background-color: rgba(0, 94, 86, 0.4);
+}
+
+.descripcion{
+    width: 300px;
+}
+#formModificarReserva input[type="submit"] [value='Modificar']{
+    border: none;
+    font-size: large;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    letter-spacing: 2px;
+    color: #04364A;
+    background-color: #ffffff6e;
+    transition: box-shadow 0.01s ease;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.contenedorCRUD{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+h1{
+    color: white;
+    text-align: center;
+}
+.redirigir{
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+.redirigir a{
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    background-color: rgba(0, 94, 86, 0.4);
+    padding: 10px;
+    transition: all 0.15s ;
+    border-bottom: 2px solid #ffffff;
+}
+
+.redirigir a:hover{
+    background-color: rgba(0, 94, 86, 0.6);
+}
+
+.redirigir a:active{
+    background-color: rgba(0, 94, 86, 0.8);
+    border: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.redirigir .elegido{
+    background-color: rgba(12, 175, 162, 0.6);
+    
+}
+.redirigir .elegido:hover{
+    background-color: rgba(11, 164, 151, 0.6);
+}
+
+@media (max-width:1000px){
+    .contenedorCRUD{
+        flex-direction: column;
+        
+        align-items: center;
+    }
+    th, td, .descripcion{
+        width: 100%;
+        padding: 6px;
+        text-align: center;
+    }
+    tr{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+    .formulario{
+        margin-top: 30px;
+    }
+    .ocultar{
+        display: none;
+    }
+    
+
+}
+@media (max-width:700px){
+    .redirigir{
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    }
+    .redirigir a{
+        text-align: center;
+        width: 70%;
+        border-bottom: none;
+
+    }
+    .buscador{
+        width: 80%;
+    }
+    *{
+        font-size: 15px;
+    }
+    #search-button{
+        display: none;
+    }
+}
+@media (max-width:450px) {
+    .encabezado h1{
+        margin-top: 70px;
+    }
+    
+}

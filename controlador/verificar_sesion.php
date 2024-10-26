@@ -1,16 +1,23 @@
 <?php
-class CalendarioModel {
-    private $conexion;
+session_start(); // Asegúrate de que la sesión esté iniciada al principio
 
-    public function __construct($conexion) {
-        $this->conexion = $conexion;
-    }
+require_once('UsuarioController.php');
+require_once('bd.php');
 
-    public function obtenerReuniones() {
-        // Implementar la lógica para obtener las reuniones desde la base de datos
-        $consulta = "SELECT * FROM reuniones";
-        $resultado = $this->conexion->query($consulta);
-        return $resultado->fetch_all(MYSQLI_ASSOC);
-    }
+$usuarioController = new UsuarioController($conexion);
+$response = array();
+
+$usuario = $usuarioController->verificarSesion();
+if ($usuario) {
+    $_SESSION['nombreUsuario'] = $usuario['nombre'];
+    $_SESSION['documento'] = $usuario['documento'];
+    $_SESSION['rol'] = $usuario['rol'];
+    $response['nombreUsuario'] = $usuario['nombre'];
+    $response['documento'] = $usuario['documento'];
+    $response['rol'] = $usuario['rol'];
+} else {
+    $response['error'] = "Usuario no ha iniciado sesión";
 }
+
+echo json_encode($response);
 ?>

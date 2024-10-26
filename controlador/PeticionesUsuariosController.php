@@ -34,8 +34,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $peticiones = $controller->obtenerPeticiones($filtro, $busqueda);
         $peticionesArray = [];
 
-        while ($peticion = $peticiones->fetch_assoc()) {
-            $peticionesArray[] = $peticion;
+        // Verifica si $peticiones es un objeto de resultado de consulta SQL
+        if (is_object($peticiones) && method_exists($peticiones, 'fetch_assoc')) {
+            while ($peticion = $peticiones->fetch_assoc()) {
+                $peticionesArray[] = $peticion;
+            }
+        } elseif (is_array($peticiones)) {
+            // Si $peticiones es un array, itera sobre él
+            $peticionesArray = $peticiones;
         }
 
         echo json_encode($peticionesArray);

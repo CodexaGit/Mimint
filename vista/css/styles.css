@@ -72,6 +72,13 @@ form {
     flex-direction: column;
     padding-bottom: 20px;
 }
+
+.ojo-contra{
+    display: flex;
+    flex-direction: row;
+    
+}
+
 .formCampoRegistro {
     width: 50%;
     display: flex;
@@ -182,11 +189,34 @@ input[type="number"]::-webkit-outer-spin-button {
     text-align: left;
 }
 
-/* Estilos para dispositivos móviles */
-@media screen and (max-width: 600px) {
-    .nav-links a {
-        text-align: center;
-    }
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    cursor: pointer;
+    
+}
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    cursor: pointer;
+}
+.btn{
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.formCampoLogin #togglePassword {
+    background-color: #ffffff00;
+    border: none;
+    filter: invert(100%);
+    cursor: pointer;
 }
 
 @media (max-width:1230px){
@@ -218,6 +248,12 @@ input[type="number"]::-webkit-outer-spin-button {
     }
     
 }
+@media screen and (max-width: 600px) {
+    .nav-links a {
+        text-align: center;
+    }
+}
+
 @media (max-width:460px){
     .containerLogin, .containerRegistro{
         width:100;
