@@ -30,9 +30,6 @@ class CaracteristicasController {
         }
     }
 
-    public function buscarCaracteristicas($busqueda) {
-        return $this->caracteristicasModel->buscarCaracteristicas($busqueda);
-    }
     public function agregarCaracteristicas($sala, $caracteristica) {
         try {
             $resultado = $this->caracteristicasModel->agregarCaracteristicas($sala, $caracteristica);

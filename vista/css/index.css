@@ -488,7 +488,6 @@ body{
     background-color: rgb(255, 255, 255, 0.5);
     font-size: 20px;
     padding: 30px 10%  30px 10%;
-    cursor: pointer;
 }
 .todaSalas p:hover{
     color: white;

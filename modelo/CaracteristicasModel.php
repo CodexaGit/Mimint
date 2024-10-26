@@ -41,20 +41,6 @@ class CaracteristicasModel {
         return $stmt->execute();
     }
 
-    public function buscarCaracteristicas($busqueda = ""){
-        $sql = "SELECT * FROM caracteristicas";
-        if ($busqueda) {
-            $sql .= " WHERE caracteristica LIKE ? OR sala LIKE ?";
-        }
-        $stmt = $this->conexion->prepare($sql);
-        if ($busqueda) {
-            $busqueda = "%$busqueda%";
-            $stmt->bind_param("ss", $busqueda, $busqueda);
-        }
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
     public function actualizarCaracteristicas($sala, $caracteristicaNueva, $caracteristicaVieja) {
         $consulta = "UPDATE CARACTERISTICAS SET caracteristica = ? WHERE sala = ? AND caracteristica = ?";
         $stmt = $this->conexion->prepare($consulta);

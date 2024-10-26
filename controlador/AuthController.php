@@ -22,7 +22,7 @@ $response = array();
                     $estado = strtolower($arrayResultado[0]['estado']);
                     error_log("Estado del usuario: $estado"); // Registro de depuración
 
-                    if ($estado == "rechazado" || $estado == "pendiente") {
+                    if ($estado == "denegado" || $estado == "pendiente") {
                         return ["error" => 2];
                     } else if ($estado == "aprobado") {
                         session_start();

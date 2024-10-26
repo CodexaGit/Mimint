@@ -11,7 +11,7 @@ class CalendarioModel {
 
     public function obtenerReservasPorFecha($fecha, $modoYo = false) {
         // Implementar la lógica para obtener las reservas desde la base de datos
-        $consulta = "SELECT * FROM reserva WHERE dia = '$fecha' AND estado = 'Aprobado' ORDER BY horainicio";
+        $consulta = "SELECT * FROM reserva WHERE dia = '$fecha' AND estado = 'Aprobado'";
         if ($modoYo) {
             // Filtrar por el usuario actual (ajusta según tu lógica de usuario)
             if (isset($_SESSION['documento'])) {
@@ -30,7 +30,7 @@ class CalendarioModel {
     
     public function obtenerReservas($modoYo = false) {
         // Implementar la lógica para obtener todas las reservas aprobadas desde la base de datos
-        $consulta = "SELECT * FROM reserva WHERE estado = 'Aprobado' ORDER BY horainicio";
+        $consulta = "SELECT * FROM reserva WHERE estado = 'Aprobado'";
         if ($modoYo) {
             // Filtrar por el usuario actual (ajusta según tu lógica de usuario)
             if (isset($_SESSION['documento'])) {

@@ -13,10 +13,10 @@ $(document).ready(function() {
                 $('#nombreUsuarioTexto').text(data.nombreUsuario);
                 $('input[name="docente"]').val(data.documento);
                 $('.nombre').append(data.nombreUsuario);
-                $('.nombreMenu').append(data.nombreUsuario + '<img src="img/usuario.png" alt="Usuario" class="usuarioLogo">');
-                if (data.rol == 'Admin') {
+                $('.nombreMenu').append(data.nombreUsuario + '<img src="img/usuario.png" alt="" class="usuarioLogo">');
+                if(data.rol == 'Admin'){
                     $('.nav-links').append(`
-                        <li><a href="#">MENÚ DE OPCIONES</a></li>
+                        <li><a href="#">MENU DE OPCIONES</a></li>
                         <hr>
                         <li><a href="inicio.php">INICIO</a></li>
                         <hr>
@@ -28,16 +28,16 @@ $(document).ready(function() {
                         <hr>
                         <li><a href="usuariosAgregados.php">USUARIOS AGREGADOS</a></li>
                         <hr>
-                        <li><a href="areaDeReportes.php">ÁREA DE REPORTES</a></li>
+                        <li><a href="areaDeReportes.php">AREA DE REPORTES</a></li>
                         <hr>
                         <li><a href="listado.php">LISTADO</a></li>
                         <hr>
-                        <li><a href="../controlador/cerrarSesion.php">CERRAR SESIÓN</a></li>
-                        <hr>
+                        <li><a href="../controlador/cerrarSesion.php" >CERRAR SESION</a></li>
+                        <hr></hr>
                     `);
-                } else if (data.rol == 'Docente') {
+                }else if(data.rol == 'Docente'){
                     $('.nav-links').append(`
-                        <li><a href="#">MENÚ DE OPCIONES</a></li>
+                        <li><a href="#">MENU DE OPCIONES</a></li>
                         <hr>
                         <li><a href="inicio.php">INICIO</a></li>
                         <hr>
@@ -45,19 +45,19 @@ $(document).ready(function() {
                         <hr>
                         <li><a href="calendario.php">CALENDARIO</a></li>
                         <hr>
-                        <li><a href="../controlador/cerrarSesion.php">CERRAR SESIÓN</a></li>
-                        <hr>
+                        <li><a href="../controlador/cerrarSesion.php" >CERRAR SESION</a></li>
+                        <hr></hr>
                     `);
-                } else if (data.rol == 'Estudiante') {
+                }else if(data.rol == 'Estudiante'){
                     $('.nav-links').append(`
-                        <li><a href="#">MENÚ DE OPCIONES</a></li>
+                        <li><a href="#">MENU DE OPCIONES</a></li>
                         <hr>
                         <li><a href="inicio.php">INICIO</a></li>
                         <hr>
                         <li><a href="calendario.php">CALENDARIO</a></li>
                         <hr>
-                        <li><a href="../controlador/cerrarSesion.php">CERRAR SESIÓN</a></li>
-                        <hr>
+                        <li><a href="../controlador/cerrarSesion.php" >CERRAR SESION</a></li>
+                        <hr></hr>
                     `);
                 }
             }
@@ -67,3 +67,4 @@ $(document).ready(function() {
         }
     });
 });
+

@@ -33,23 +33,6 @@ class SalaModel {
         }
     }
 
-    public function buscarSalas($nombre) {
-        $consulta = "SELECT * FROM sala WHERE nombre LIKE ? OR localidad LIKE ? OR capacidad LIKE ?";
-        $stmt = $this->conexion->prepare($consulta);
-        if (!$stmt) {
-            throw new Exception('Error en la preparación de la consulta: ' . $this->conexion->error);
-        }
-        $nombre = '%' . $nombre . '%';
-        $stmt->bind_param("sss", $nombre, $nombre, $nombre);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-        $salas = [];
-        while ($row = $resultado->fetch_assoc()) {
-            $salas[] = $row;
-        }
-        return $salas;
-    }
-
     public function obtenerCaracteristicas($nombre) {
         $consulta = "SELECT caracteristica FROM caracteristicas WHERE sala = ?";
         $stmt = $this->conexion->prepare($consulta);

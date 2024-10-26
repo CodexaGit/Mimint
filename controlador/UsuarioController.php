@@ -23,22 +23,6 @@ class UsuarioController {
         }
     }
 
-    public function buscarUsuarios($busqueda = ''){
-        try {
-            $resultado = $this->usuarioModel->obtenerUsuarios(null, 'asc', $busqueda);
-            if ($resultado === false) {
-                throw new Exception('Error al obtener los usuarios.');
-            }
-            $usuariosArray = [];
-            while ($usuario = $resultado->fetch_assoc()) {
-                $usuariosArray[] = $usuario;
-            }
-            return ['status' => 'success', 'data' => $usuariosArray];
-        } catch (Exception $e) {
-            return ['status' => 'error', 'message' => $e->getMessage()];
-        }
-    }
-
     public function listarTodosUsuarios() {
         try {
             $resultado = $this->usuarioModel->obtenerUsuarios();

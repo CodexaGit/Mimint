@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,36 +9,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Página Mimint</title>
+    <title>Página Mimit</title>
 </head>
 <body>
 
 <nav>
-    <div class="menu-btn">
-        <p class="separadorUsuario nombreMenu"></p>
-        <img src="img/menu.png" class="menu-icon">
-    </div>
-    <ul class="nav-links">
-        <!-- Aquí puedes agregar los enlaces del menú -->
-    </ul>
-</nav>
+        <div class="menu-btn">
+            <p class="separadorUsuario nombreMenu"></p>
+            <img src="img/menu.png" class="menu-icon">
+        </div>
+        <ul class="nav-links">
+            
+        </ul>
+    </nav>
 <section>
-    <p class="tituloUsu">PETICIONES DE USUARIOS</p>
+    <p class="tituloUsu">PETICIONES USUARIOS</p>
     
-    <div class="search-container">
+    <div class="search-container ">
         <div class="switchPeticiones anchoTotal">
-            <img src="img/lupa.png" alt="Buscar" class="lupaP" id="search-button">
+            <img src="img/lupa.png" alt="" class="lupaP" id="search-button">
             <form class="buscadorReservas" id="search-form">
                 <input type="text" placeholder="Buscar..." name="busqueda" id="search-input">
                 <input type="submit" value="" hidden>
             </form>
         </div>
-        <div class="switchPeticiones">
-            <img src="img/usuarioBlue.png" alt="Usuario" class="imgBlue">
+        <div class="switchPeticiones ">
+            <img src="img/usuarioBlue.png" alt="" class="imgBlue">
             <a href="peticionesReserva.php">
-                <img src="img/switchBlue.png" alt="Cambiar" class="switch">
+                <img src="img/switchBlue.png" alt="" class="switch">
             </a>
-            <img src="img/pizarraBlue.png" alt="Pizarra" class="imgBlue">
+            <img src="img/pizarraBlue.png" alt="" class="imgBlue">
         </div>
     </div>
     <form id="filtro-form">

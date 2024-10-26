@@ -20,30 +20,11 @@ class EquipamientoModel {
         return $equipamientos;
     }
 
-    public function buscarEquipamientoTodos($query) {
-        $sql = "SELECT * FROM equipamiento WHERE nombre LIKE ? OR cantidad LIKE ?";
-        $stmt = $this->conexion->prepare($sql);
-        $likeQuery = "%$query%";
-        $stmt->bind_param('ss', $likeQuery, $likeQuery);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $equipamientos = [];
-        while ($row = $result->fetch_assoc()) {
-            $equipamientos[] = $row;
-        }
-        return $equipamientos;
-    }
-
     public function agregarEquipamiento($nombre, $cantidad) {
         $sql = "INSERT INTO equipamiento (nombre, cantidad) VALUES (?, ?)";
         $stmt = $this->conexion->prepare($sql);
         $stmt->bind_param('si', $nombre, $cantidad);
-        try {
-            $stmt->execute();
-            return ['status' => 'success', 'message' => 'Equipamiento agregado exitosamente'];
-        } catch (mysqli_sql_exception $e) {
-            return ['status' => 'error', 'message' => 'Error al agregar el equipamiento: ' . $e->getMessage()];
-        }
+        $stmt->execute();
     }
 
     public function modificarEquipamiento($nombre, $cantidad) {
@@ -51,7 +32,6 @@ class EquipamientoModel {
         $stmt = $this->conexion->prepare($sql);
         $stmt->bind_param('is', $cantidad, $nombre);
         $stmt->execute();
-        return ['status' => 'success', 'message' => 'Equipamiento modificado exitosamente'];
     }
 
     public function eliminarEquipamiento($nombre) {
@@ -66,6 +46,15 @@ class EquipamientoModel {
         }
     }
 
+    public function obtenerEquipamientoPorNombre($nombre) {
+        $sql = "SELECT * FROM equipamiento WHERE nombre = ?";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bind_param('s', $nombre);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
     public function obtenerEquipamientoPorId($id) {
         $sql = "SELECT * FROM requiere WHERE requiere.reserva = ?";
         $stmt = $this->conexion->prepare($sql);
@@ -77,15 +66,6 @@ class EquipamientoModel {
             $equipamientos[] = $row;
         }
         return $equipamientos;
-    }
-
-    public function obtenerEquipamientoPorNombre($nombre) {
-        $sql = "SELECT * FROM equipamiento WHERE nombre = ?";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param('s', $nombre);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_assoc();
     }
 
     public function obtenerEquipamiento() {

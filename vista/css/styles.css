@@ -72,13 +72,6 @@ form {
     flex-direction: column;
     padding-bottom: 20px;
 }
-
-.ojo-contra{
-    display: flex;
-    flex-direction: row;
-    
-}
-
 .formCampoRegistro {
     width: 50%;
     display: flex;
@@ -211,14 +204,6 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: .25rem;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-
-.formCampoLogin #togglePassword {
-    background-color: #ffffff00;
-    border: none;
-    filter: invert(100%);
-    cursor: pointer;
-}
-
 @media (max-width:1230px){
     .containerLogin{
         width:60%;

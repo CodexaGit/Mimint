@@ -34,11 +34,11 @@ $(document).ready(function() {
                                     <div class="filaP o">
                                         <div class="op">
                                             <p>ACEPTAR</p>
-                                            <img class="elegir" src="img/tick.png" alt="Aceptar" data-accion="aceptarUsuario" data-documento="${usuario.documento}" data-rol="${usuario.rol}">
+                                            <img class="elegir" src="img/tick.png" alt="" data-accion="aceptarUsuario" data-documento="${usuario.documento}" data-rol="${usuario.rol}">
                                         </div>
                                         <div class="op">
                                             <p>DENEGAR</p>
-                                            <img class="mal" src="img/mal.png" alt="Denegar" data-accion="denegarUsuario" data-documento="${usuario.documento}" data-rol="${usuario.rol}">
+                                            <img class="mal" src="img/mal.png" alt="" data-accion="denegarUsuario" data-documento="${usuario.documento}" data-rol="${usuario.rol}">
                                         </div>
                                     </div>
                                 </div>

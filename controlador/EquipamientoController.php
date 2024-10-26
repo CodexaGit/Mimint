@@ -14,11 +14,6 @@ class EquipamientoController {
         return $model->buscarEquipamiento($query);
     }
 
-    public function buscarEquipamientoTodos($query) {
-        $model = new EquipamientoModel($this->conexion);
-        return $model->buscarEquipamientoTodos($query);
-    }
-
     public function listarEquipamiento() {
         $model = new EquipamientoModel($this->conexion);
         return $model->obtenerEquipamiento();
@@ -26,12 +21,12 @@ class EquipamientoController {
 
     public function agregarEquipamiento($nombre, $cantidad) {
         $model = new EquipamientoModel($this->conexion);
-        return $model->agregarEquipamiento($nombre, $cantidad);
+        $model->agregarEquipamiento($nombre, $cantidad);
     }
 
     public function modificarEquipamiento($nombre, $cantidad) {
         $model = new EquipamientoModel($this->conexion);
-        return $model->modificarEquipamiento($nombre, $cantidad);
+        $model->modificarEquipamiento($nombre, $cantidad);
     }
 
     public function obtenerEquipamientoPorNombre($nombre) {
@@ -78,10 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $controller = new EquipamientoController($conexion);
 
             switch ($accion) {
-                case 'listarEquipamiento':
-                    $equipamiento = $controller->listarEquipamiento();
-                    $response = ['status' => 'success', 'equipamiento' => $equipamiento];
-                    break;
                 case 'obtenerEquipamiento':
                     if (isset($_POST['id'])) {
                         $id = $_POST['id'];
@@ -95,8 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (isset($_POST['nombre']) && isset($_POST['cantidad'])) {
                         $nombre = $_POST['nombre'];
                         $cantidad = $_POST['cantidad'];
-                        $resultado = $controller->modificarEquipamiento($nombre, $cantidad);
-                        $response = $resultado;
+                        $controller->modificarEquipamiento($nombre, $cantidad);
+                        $response = ['status' => 'success', 'message' => 'Equipamiento modificado exitosamente'];
                     } else {
                         $response = ['status' => 'error', 'message' => 'Datos incompletos para modificar equipamiento'];
                     }
@@ -105,8 +96,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 case 'eliminarEquipamiento':
                     if (isset($_POST['nombre'])) {
                         $nombre = $_POST['nombre'];
-                        $resultado = $controller->eliminarEquipamiento($nombre);
-                        $response = $resultado;
+                        $controller->eliminarEquipamiento($nombre);
+                        $response = ['status' => 'success', 'message' => 'Equipamiento eliminado exitosamente'];
                     } else {
                         $response = ['status' => 'error', 'message' => 'Datos incompletos para eliminar equipamiento'];
                     }
@@ -116,31 +107,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (isset($_POST['nombre']) && isset($_POST['cantidad'])) {
                         $nombre = $_POST['nombre'];
                         $cantidad = $_POST['cantidad'];
-                        $resultado = $controller->agregarEquipamiento($nombre, $cantidad);
-                        $response = $resultado;
+                        $controller->agregarEquipamiento($nombre, $cantidad);
+                        $response = ['status' => 'success', 'message' => 'Equipamiento agregado exitosamente'];
                     } else {
                         $response = ['status' => 'error', 'message' => 'Datos incompletos para agregar equipamiento'];
                     }
                     break;
 
-                case 'buscarEquipamiento':
-                    if (isset($_POST['busqueda'])) {
-                        $busqueda = $_POST['busqueda'];
-                        $equipamiento = $controller->buscarEquipamiento($busqueda);
-                        $response = ['status' => 'success', 'equipamiento' => $equipamiento];
-                    } else {
-                        $response = ['status' => 'error', 'message' => 'Datos incompletos para buscar equipamiento'];
-                    }
-                    break;
-                case 'buscarEquipamientoTodos':
-                        if (isset($_POST['busqueda'])) {
-                            $busqueda = $_POST['busqueda'];
-                            $equipamiento = $controller->buscarEquipamientoTodos($busqueda);
-                            $response = ['status' => 'success', 'equipamiento' => $equipamiento];
-                        } else {
-                            $response = ['status' => 'error', 'message' => 'Datos incompletos para buscar equipamiento'];
-                        }
-                        break;
                 default:
                     $response = ['status' => 'error', 'message' => 'Acción no válida'];
                     break;
@@ -153,5 +126,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     echo json_encode($response);
+    $conexion->close();
 }
 ?>

@@ -38,10 +38,6 @@ class SalaController {
         return $salasConCaracteristicas;
     }
 
-    public function buscarSalas($nombre) {
-        $resultado = new SalaModel($this->salaModel);
-        return $resultado->buscarSalas($nombre);
-    }
     public function obtenerSala($nombre) {
         try {
             $resultado = new SalaModel($this->salaModel);

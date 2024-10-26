@@ -100,20 +100,6 @@ class ReservaModel {
             throw new Exception("Error al eliminar la reserva: " . $stmt->error);
         }
     }
-    
-    public function buscarReservas($query) {
-        $sql = "SELECT * FROM reserva WHERE descripcion LIKE ? OR docente LIKE ? OR sala LIKE ?";
-        $stmt = $this->conexion->prepare($sql);
-        $likeQuery = "%$query%";
-        $stmt->bind_param('sss', $likeQuery, $likeQuery, $likeQuery);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $reservas = [];
-        while ($row = $result->fetch_assoc()) {
-            $reservas[] = $row;
-        }
-        return $reservas;
-    }
     public function modificarReserva($id, $dia, $horainicio, $horafin, $cantidadpersonas, $descripcion, $docente, $sala) {
         $sql = "UPDATE reserva SET dia = ?, horainicio = ?, horafin = ?, cantidadpersonas = ?, descripcion = ?, docente = ?, sala = ? WHERE id = ?";
         $stmt = $this->conexion->prepare($sql);

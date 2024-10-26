@@ -22,14 +22,17 @@
             <hr>
         </ul>
     </nav>
-    <div class="tituloAgregar"> <h1>ÁREA DE REPORTES</h1> </div>
+    <div class="tituloAgregar"> <h1>AREA DE REPORTES</h1> </div>
 
+    <div class="descripcionAgregar">
+        <p id="Seccion">Seccion</p>
+    </div>
     <div class="inputsAgregar">
         <form id="reporteForm" class="centrar">
             <select name="seccionReporte" id="seccion" required>
                 <option value="" hidden>Reporte</option>
                 <option value="todoRegistros">Todos los registros</option>
-                <option value="equipamientoMasUsado">Equipamiento más usado</option>
+                <option value="equipamientoMasUsado">Equipamiento más usados</option>
                 <option value="salasMasUsadas">Salas más usadas</option>
             </select>
             

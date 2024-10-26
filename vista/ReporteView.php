@@ -75,9 +75,9 @@ class PDF extends FPDF {
             $this->AddPage($this->CurOrientation);
             // Reimprimir encabezado después de un salto de página
             $this->SetFont('Arial', 'B', 12);
-            $this->SetFillColor(192, 242, 255);
+            $this->SetFillColor(200, 220, 255);
             $this->SetTextColor(0);
-            $this->SetDrawColor(9, 129, 126);
+            $this->SetDrawColor(128, 0, 0);
             $this->SetLineWidth(.3);
 
             // Definir anchos de columnas (reutilizar lógica existente)
@@ -86,6 +86,7 @@ class PDF extends FPDF {
             // Para simplificar, supondré que los anchos de columna ya están definidos
             // Reescribe esta sección según tus necesidades específicas
         }
+
     }
 
     /**
@@ -97,11 +98,11 @@ class PDF extends FPDF {
     function Table($header, $data) {
         // Configuración de estilos
         $this->SetFont('Arial', 'B', 12);
-        $this->SetFillColor(192, 242, 255);
+        $this->SetFillColor(200, 220, 255);
         $this->SetTextColor(0);
-        $this->SetDrawColor(9, 129, 126);
+        $this->SetDrawColor(128, 0, 0);
         $this->SetLineWidth(.3);
-
+    
         // Definir anchos de columnas
         $colWidths = [];
         foreach ($header as $col) {
@@ -113,24 +114,23 @@ class PDF extends FPDF {
                 $colWidths[] = 40;
             }
         }
-
+    
         // Calcular ancho total de la tabla
         $tableWidth = array_sum($colWidths);
-
+    
         // Calcular posición X para centrar la tabla
         $startX = ($this->w - $tableWidth) / 2;
-
+    
         // Imprimir encabezado
         $this->SetXY($startX, $this->GetY());
         foreach ($header as $i => $col) {
-            $colName = ($col == 'fechaModificacion') ? 'modificacion' : $col;
-            $this->Cell($colWidths[$i], 7, $this->convertToIso(strtoupper($colName)), 1, 0, 'C', true); // Convertir a mayúsculas
+            $this->Cell($colWidths[$i], 7, $this->convertToIso($col), 1, 0, 'C', true); // 'C' para alinear el header centrado horizontalmente
         }
         $this->Ln();
-
+    
         // Configuración para datos
         $this->SetFont('Arial', '', 10);
-
+    
         // Recorrer cada fila de datos
         foreach ($data as $row) {
             // Calcular el número máximo de líneas en la fila
@@ -139,23 +139,22 @@ class PDF extends FPDF {
                 $nb = max($nb, $this->NbLines($colWidths[$i], isset($row[$col]) ? $row[$col] : ''));
             }
             $h = 6 * $nb; // Altura de la fila
-
+    
             // Verificar salto de página
             if ($this->GetY() + $h > $this->PageBreakTrigger) {
                 $this->AddPage();
                 // Reimprimir encabezado en nueva página
                 $this->SetXY($startX, $this->GetY());
                 foreach ($header as $i => $col) {
-                    $colName = ($col == 'fecha modificacion') ? 'modificacion' : $col;
-                    $this->Cell($colWidths[$i], 7, $this->convertToIso(strtoupper($colName)), 1, 0, 'C', true); // Convertir a mayúsculas
+                    $this->Cell($colWidths[$i], 7, $this->convertToIso($col), 1, 0, 'C', true); // 'C' para alinear header centrado
                 }
                 $this->Ln();
             }
-
+    
             // Guardar posición actual
             $x = $startX;
             $y = $this->GetY();
-
+    
             // Dibujar cada celda de la fila
             foreach ($header as $i => $col) {
                 $cellText = isset($row[$col]) ? $row[$col] : '';
@@ -167,12 +166,12 @@ class PDF extends FPDF {
                 // Actualizar posición X para la siguiente celda
                 $x += $colWidths[$i];
             }
-
+    
             // Mover cursor a la siguiente línea
             $this->SetXY($startX, $y + $h);
         }
     }
-
+    
     function NbLines($w, $txt) {
         $cw = &$this->CurrentFont['cw'];
         if($w == 0)
@@ -297,8 +296,7 @@ class ReporteView {
                     $header = array_keys($sectionData[0]);
                     $col = 'A';
                     foreach ($header as $head) {
-                        $headName = ($head == 'fecha modificacion') ? 'modificacion' : $head;
-                        $sheet->setCellValue($col . $row, strtoupper($headName)); // Convertir a mayúsculas
+                        $sheet->setCellValue($col . $row, $head);
                         $col++;
                     }
                     $row++;
@@ -321,8 +319,7 @@ class ReporteView {
                 $header = array_keys($data[0]);
                 $col = 'A';
                 foreach ($header as $head) {
-                    $headName = ($head == 'fecha modificacion') ? 'modificacion' : $head;
-                    $sheet->setCellValue($col . $row, strtoupper($headName)); // Convertir a mayúsculas
+                    $sheet->setCellValue($col . $row, $head);
                     $col++;
                 }
                 $row++;

@@ -21,15 +21,6 @@ class ReservaController {
         }
     }
 
-    public function buscarReservas($query) {
-        try {
-            $reservasArray = $this->reservaModel->buscarReservas($query);
-            return ['status' => 'success', 'data' => $reservasArray];
-        } catch (Exception $e) {
-            return ['status' => 'error', 'message' => $e->getMessage()];
-        }
-    }
-
     public function crearReserva($dia, $horainicio, $horafin, $cantidadpersonas, $descripcion, $docente, $sala, $equipamiento) {
         try {
             $reserva_id = $this->reservaModel->crearReserva($dia, $horainicio, $horafin, $cantidadpersonas, $descripcion, $docente, $sala, $equipamiento);
@@ -114,58 +105,10 @@ class ReservaController {
     }
 }
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    header('Content-Type: application/json');
-    $response = ['status' => 'error', 'message' => 'Acción no definida'];
-
-    try {
-        if (isset($_POST['accion'])) {
-            $accion = $_POST['accion'];
-            $controller = new ReservaController($conexion);
-
-            switch ($accion) {
-                case 'obtenerReserva':
-                    $resultado = $controller->obtenerReserva($_POST['id']);
-                    if ($resultado['status'] === 'success') {
-                        $response = [
-                            'status' => 'success',
-                            'cedulaEnviar' => $resultado['data']['docente'],
-                            'salaReserva' => $resultado['data']['sala'],
-                            'dia' => $resultado['data']['dia'],
-                            'id' => $_POST['id'],
-                            'accion' => $_POST['accion'],
-                            'mensaje' => $_POST['mensaje']
-                        ];
-                    } else {
-                        $response = $resultado;
-                    }
-                    break;
-                case 'listarReservas':
-                    $reservas = $controller->listarReservas();
-                    $response = $reservas;
-                    break;
-                case 'buscarReservas':
-                    if (isset($_POST['busqueda'])) {
-                        $busqueda = $_POST['busqueda'];
-                        $reservas = $controller->buscarReservas($busqueda);
-                        $response = ['status' => 'success', 'reservas' => $reservas['data']];
-                    } else {
-                        $response = ['status' => 'error', 'message' => 'Datos incompletos para buscar reservas'];
-                    }
-                    break;
-
-                default:
-                    $response = ['status' => 'error', 'message' => 'Acción no válida'];
-                    break;
-            }
-        } else {
-            $response = ['status' => 'error', 'message' => 'Acción no definida'];
-        }
-    } catch (Exception $e) {
-        $response = ['status' => 'error', 'message' => $e->getMessage()];
-    }
-
-    echo json_encode($response);
+if (isset($_POST['accion']) && $_POST['accion'] == "obtenerReserva") {
+    $respuesta = new ReservaController($conexion);
+    $resultado = $respuesta->obtenerReserva($_POST['id']);
+    
+    echo json_encode(['status' => 'success','cedulaEnviar' => $resultado["docente"], 'salaReserva' => $resultado['sala'], 'dia' => $resultado['dia'], 'id' => $_POST['id'] , 'accion' => $_POST['accion'], 'mensaje' => $_POST['mensaje']]);
 }
 ?>

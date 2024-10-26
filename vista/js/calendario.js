@@ -194,7 +194,7 @@ function eliminarReserva() {
     
     Swal.fire({
         title: '¿Deseas eliminar esta reserva?',
-        text: '¡No podrás revertir esto!',
+        text: 'No podrás revertir esto!',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Sí, eliminar!',

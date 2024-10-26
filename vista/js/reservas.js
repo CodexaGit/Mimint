@@ -7,13 +7,14 @@ $(document).ready(function() {
             data: { accion: 'listarSalas' },
             dataType: 'json',
             success: function(response) {
+
                 $('#salas-container').empty();
                 if (response.status === 'error') {
                     $('#salas-container').append('<p>Error: ' + response.message + '</p>');
                 } else if (response.length > 0) {
                     console.log("bien");
                     response.forEach(function(sala) {
-                        $('#salas-container').append('<p class="sala-link" data-nombre="' + sala.nombre + '">' + sala.nombre + '</p>');
+                        $('#salas-container').append('<p><a href="#" class="sala-link" data-nombre="' + sala.nombre + '">' + sala.nombre + '</a></p>');
                     });
                 } else {
                     $('#salas-container').append('<p>No hay salas disponibles.</p>');
@@ -140,8 +141,8 @@ $(document).ready(function() {
                                 </div>
                             </div>
                             <div class="descrip sp">
-                                <p>Descripción</p>
-                                <textarea name="descripcion" placeholder="Esta reunión se realiza con el motivo de....." class="horasP"></textarea>
+                                <p>Descripcion</p>
+                                <textarea name="descripcion" placeholder="Esta reunion se realiza con el motivo de....." class="horasP"></textarea>
                             </div>
                             <div class="equipo sp">
                                 <p>Equipamiento</p>
@@ -156,12 +157,12 @@ $(document).ready(function() {
                                     </div>
                                     <div class="botones">
                                         <div class='contenedorBotones'>
-                                            <p class='textoBotones'>RESTAR EQUIPAMIENTO</p>
-                                            <img src="img/Menos.png" alt="Quitar" id="remove-equipamiento">
+                                        <p class='textoBotones'>RESTAR EQUIPAMIENTO</p>
+                                        <img src="img/Menos.png" alt="Quitar" id="remove-equipamiento">
                                         </div>
                                         <div class='contenedorBotones'>
-                                            <p class='textoBotones'>AGREGAR EQUIPAMIENTO</p>
-                                            <img src="img/Mas.png" alt="Agregar" id="add-equipamiento">
+                                        <p class='textoBotones'>AGREGAR EQUIPAMIENTO</p>
+                                        <img src="img/Mas.png" alt="Agregar" id="add-equipamiento">
                                         </div>
                                     </div>
                                 </div>
@@ -210,6 +211,7 @@ $(document).ready(function() {
                         document.getElementById('cantidadpersonas2').value = document.getElementById('cantidadpersonas1').value;
                     }
 
+
                     // Inicializar autocomplete para los campos de equipamiento
                     inicializarAutocomplete();
                 }
@@ -237,24 +239,12 @@ $(document).ready(function() {
             type: 'POST',
             data: formData,
             success: function(response) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Éxito',
-                    text: 'Reserva realizada con éxito.',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+                alert('Reserva realizada con éxito.');
                 $('#sala-info').empty();
                 $('#sala-nombre').text('Seleccione una sala para ver la información y reservar');
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Error al realizar la reserva.',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+                alert('Error al realizar la reserva.');
             }
         });
     });
@@ -304,6 +294,7 @@ $(document).ready(function() {
     }
 
     // Función para ajustar los atributos required según el tamaño de la pantalla
+    
     function ajustarRequired() {
         if ($(window).width() < 1000) {
             $('#formularioReservas input:not([type="submit"]), #formularioReservas select').removeAttr('required');
@@ -313,6 +304,7 @@ $(document).ready(function() {
             $('.formulario-oculto input, .formulario-oculto select').removeAttr('required');
         }
     }
+
 
     // Ajustar los atributos required al cargar la página y al cambiar el tamaño de la ventana
     ajustarRequired();

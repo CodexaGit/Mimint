@@ -71,43 +71,26 @@ $(document).ready(function() {
     $('#usuarios-container').on('click', '.rechazar-boton', function() {
         const documento = $(this).data('documento');
         console.log('Rechazar botón click:', documento); // Verificar el documento del usuario a rechazar
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: 'No podrás revertir esta acción.',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Sí, eliminar.'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    url: '../controlador/eliminarUsuario.php',
-                    type: 'POST',
-                    data: { accion: 'rechazarUsuario', documento: documento },
-                    success: function(response) {
-                        console.log('Rechazar Response:', response); // Verificar la respuesta de rechazarUsuario
-                        try {
-                            const result = typeof response === 'object' ? response : JSON.parse(response);
-                            if (result.status === 'success') {
-                                cargarUsuarios();
-                                Swal.fire({
-                                    title: 'Usuario eliminado',
-                                    text: 'El usuario ha sido eliminado correctamente.',
-                                    icon: 'success',
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
-                            } else {
-                                alert('Error al rechazar el usuario.');
-                            }
-                        } catch (e) {
-                            console.error('Error al analizar JSON:', e);
-                            alert('Error inesperado. Por favor, inténtelo de nuevo.');
-                        }
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.error('Error:', textStatus, errorThrown);
+        $.ajax({
+            url: '../controlador/eliminarUsuario.php',
+            type: 'POST',
+            data: { accion: 'rechazarUsuario', documento: documento },
+            success: function(response) {
+                console.log('Rechazar Response:', response); // Verificar la respuesta de rechazarUsuario
+                try {
+                    const result = typeof response === 'object' ? response : JSON.parse(response);
+                    if (result.status === 'success') {
+                        cargarUsuarios();
+                    } else {
+                        alert('Error al rechazar el usuario.');
                     }
-                });
+                } catch (e) {
+                    console.error('Error parsing JSON:', e);
+                    alert('Error inesperado. Por favor, inténtelo de nuevo.');
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Error:', textStatus, errorThrown);
             }
         });
     });

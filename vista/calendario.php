@@ -16,20 +16,20 @@
     <title>Calendario</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php include("alerta.php")?>
-    <link rel="stylesheet" href="css/alertas.css">
 </head>
 <body>
 <nav>
+    
     <div class="menu-btn">
         <p class="separadorUsuario nombreMenu"></p>
         <img src="img/menu.png" class="menu-icon">
     </div>
     <ul class="nav-links">
-        <!-- Aquí puedes agregar los enlaces del menú -->
+        
     </ul>
 </nav>
 <div class="contenedorCalendario">
-    <div class="titulo pantallaChica">
+<div class="titulo pantallaChica">
         <h1>CALENDARIO</h1>
     </div>
     <div id="Calendario">
@@ -40,25 +40,25 @@
             <h1>CALENDARIO</h1>
         </div>
         <div id="agregarReunion">
-            <p>AGREGAR REUNIÓN</p>
-            <a href="reservas.php"><img src="img/Boton de mas.png" alt="Agregar reunión"></a>
+            <p>AGREGAR REUNION</p>
+            <a href="reservas.php"><img src="img/Boton de mas.png" alt=""></a>
         </div>
         <div id="modoYo">
             <p>MODO YO</p>
-            <div>
+            <div >
                 <input type="checkbox" id="modoYoCheckbox">
             </div>
             <div class="tooltip">
-                <img id="ejemplo" src="img/Group 17.png" alt="Ejemplo">
+                <img id="ejemplo" src="img/Group 17.png" alt="">
                 <span class="tooltiptext">
-                    <p style="padding-left: 0;">ESTA OPCIÓN HABILITARÁ VER SOLAMENTE LAS SALAS QUE SE REGISTRARON PARA USTED</p>
+                    <p style="padding-left: 0;">ESTA OPCION HABLITARA VER SOLAMENTE LAS SALAS QUE SE REGISTRARON PARA USTED</p>
                 </span>
             </div>
         </div>
         <div id="salas">
-            <!-- Aquí puedes agregar el contenido de las salas -->
-        </div>
+
     </div>
+</div>
 </div>
 
 <script src="js/verificar_sesion.js"></script>

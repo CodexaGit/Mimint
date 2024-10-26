@@ -25,11 +25,11 @@ $(document).ready(function() {
                                     <p class="num">${peticion.horainicio}</p>
                                     <p class="txt">CANT. DE PERSONAS:</p>
                                     <p class="num">${peticion.cantidadpersonas}</p>
-                                    <p class="txt">DURACIÓN:</p>
+                                    <p class="txt">DURACION:</p>
                                     <p class="num">${duracionHoras} horas</p>
                                 </div>
                                 <div class="datoTxt">
-                                    <p>DESCRIPCIÓN:</p>
+                                    <p>DESCRIPCION:</p>
                                     <p class="p2 txtp2">${descripcion}</p>
                                     <p>EQUIPAMIENTO:</p>
                                     <ul id="caracteristicasContainer-${peticion.id}" class="caracteristicasContainer">
@@ -159,10 +159,10 @@ $(document).ready(function() {
                                                             cedula: cedulaEnviar
                                                         },
                                                         success: function(emailResponse) {
-                                                            console.log('Email enviado:', emailResponse);
+                                                            console.log('Email sent:', emailResponse);
                                                         },
                                                         error: function(jqXHR, textStatus, errorThrown) {
-                                                            console.error('Error al enviar el correo:', textStatus, errorThrown);
+                                                            console.error('Error sending email:', textStatus, errorThrown);
                                                         }
                                                     });
                                                 }

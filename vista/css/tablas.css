@@ -27,39 +27,6 @@ body{
     height: 100%;
     width: 100%;
 }
-.search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-top: 20px;
-}
-#search-button {
-    padding: 0.4%;
-    background-color: #0F526D;
-    margin-right: 5px;
-    border: none;
-    border-radius: 5px;
-}
-#search-input {
-    margin-right: 0px;
-    width: 98%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    color: black;
-    transition: none;
-    background-color: white;
-}
-#search-input:focus {
-    outline: none;
-    scale: 1;
-    border: 1px solid black;
-}
-.buscador{
-    width: 50%;
-}
 .contenedorListados{
     height: 100%;
     width: 100%;
@@ -130,7 +97,7 @@ input[readonly]{
     cursor: pointer;
     margin-top: 5px;
 }
-input[type='submit'][value='Modificar'], input[type='submit'][value='Eliminar'], .btn-modificar, .btn-eliminar{
+input[type='submit'][value='Modificar'], input[type='submit'][value='Eliminar']{
     border: none;
     font-size: large;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
@@ -143,17 +110,17 @@ input[type='submit'][value='Modificar'], input[type='submit'][value='Eliminar'],
     scale: 0.8;
 }
 
-input[type='submit'][value='Modificar']:active, input[type='submit'][value='Eliminar']:active, .btn-modificar:active, .btn-eliminar:active{
+input[type='submit'][value='Modificar']:active, input[type='submit'][value='Eliminar']:active{
     box-shadow: inset 2px 2px 1px #04364a, inset -2px -2px 1px rgba(255, 255, 255, 0.3);
     letter-spacing: 2px;
 
 }
 
-input[type='submit'][value='Modificar'],.btn-modificar{
+input[type='submit'][value='Modificar']{
     background-color: #39a939;
 
 }
-input[type='submit'][value='Eliminar'],.btn-eliminar{
+input[type='submit'][value='Eliminar']{
     background-color: #b83939;
 }
 
@@ -285,14 +252,8 @@ h1{
         border-bottom: none;
 
     }
-    .buscador{
-        width: 80%;
-    }
     *{
         font-size: 15px;
-    }
-    #search-button{
-        display: none;
     }
 }
 @media (max-width:450px) {

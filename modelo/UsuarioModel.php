@@ -53,7 +53,7 @@ class UsuarioModel {
             throw new Exception('Error de conexión: ' . $this->conexion->connect_error);
         }
 
-        $consulta = "SELECT documento, nombre, apellido, email, rol FROM usuario WHERE rol = 'Docente' OR rol = 'Admin' AND estado = 'Aprobado'";
+        $consulta = "SELECT documento, nombre, apellido, email, rol FROM usuario WHERE rol = 'Docente' OR rol = 'Administrador' AND estado = 'Aprobado'";
         $stmt = $this->conexion->prepare($consulta);
         if (!$stmt) {
             throw new Exception('Error en la preparación de la consulta: ' . $this->conexion->error);

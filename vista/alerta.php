@@ -11,8 +11,7 @@ function mostrarAlerta($status, $message) {
                 title: '$title',
                 text: '$message',
                 icon: '$icon',
-                showConfirmButton: false,
-                timer: 1500
+                confirmButtonText: 'OK'
             });
         });
     </script>";
